@@ -42,7 +42,9 @@ class Builder {
 		if($settings) {
 			$this->settings = $settings;
 		}
+
 		$this->sections = Sections::getInstance();
+		
 	}
 
 	public function show_settings() 
@@ -69,7 +71,6 @@ class Builder {
 
 	public function build_header()
 	{
-		// $sections = Sections::getInstance();
 		foreach($this->body_items as $item)
 		{
 			$this->sections->append_head_content($item);
@@ -78,7 +79,6 @@ class Builder {
 
 	public function build_body()
 	{
-		// $sections = Sections::getInstance();
 		foreach($this->body_items as $item)
 		{
 			$this->sections->append_body_content($item);
