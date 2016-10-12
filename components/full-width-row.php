@@ -1,7 +1,5 @@
 <?php extract($args) ?>
-<?php $width = ( isset($container) ) ? $container : '100%' ?>
-<?php $class = ( isset($container) ) ? 'container ': '' ?>
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="<?php echo $inline_styles; ?>" class="<?php echo $class; ?>">
 	<tbody>
 		<tr>
 			<td>
@@ -13,7 +11,7 @@
 									<tbody>
 										<tr>
 											<td valign="top" align="center">
-												<table class="container" border="0" cellpadding="0" cellspacing="0"  style="width: <?php echo $width ?>; max-width: <?php echo $width ?>;" width=" <?php echo $width ?>">
+												<table class="container" border="0" cellpadding="0" cellspacing="0"  style="width: 100%; max-width: 100%;" width=" 100%">
 													<tbody>
 														<tr>
 															<td >

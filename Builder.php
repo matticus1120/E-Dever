@@ -40,15 +40,8 @@ class Builder extends Styles {
 		}
 
 
-		$this->set_styles();
+		// $this->add_styles_to_header();
 		
-	}
-
-	public function show_settings() 
-	{
-		var_dump($this->settings);
-		echo '<hr>';
-		// echo  Components::show_me_things();
 	}
 
 	public function add_to_head( $content )
@@ -85,6 +78,7 @@ class Builder extends Styles {
 
 	public function build_email()
 	{
+		$this->build_styles();
 		$this->build_header();
 		$this->build_body();
 
@@ -96,6 +90,7 @@ class Builder extends Styles {
 		$this->build_email();
 		echo $this->email;
 	}
+
 
 }
 

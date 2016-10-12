@@ -18,11 +18,6 @@ class Helpers {
 		return static::$instance;
 	}
 
-	public static function doathing()
-	{
-		echo 'hello';
-	}
-
 	public function get_file( $file, $args = [] )
 	{
 		ob_start( );
