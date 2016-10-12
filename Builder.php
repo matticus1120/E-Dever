@@ -1,12 +1,10 @@
 <?php
 
-include 'Components.php';
-include 'Sections.php';
+include 'Styles.php';
 
-use Builder\Components as Components;
-use Builder\Sections as Sections;
+use Builder\Styles;
 
-class Builder {
+class Builder extends Styles {
 
 	public $settings = [
 		'styles' => [
@@ -35,15 +33,14 @@ class Builder {
 	public $body = [];
 	public $footer = [];
 
-	private $sections;
-
 	public function __construct($settings = null) 
 	{
 		if($settings) {
 			$this->settings = $settings;
 		}
 
-		$this->sections = Sections::getInstance();
+
+		$this->set_styles();
 		
 	}
 
@@ -51,7 +48,7 @@ class Builder {
 	{
 		var_dump($this->settings);
 		echo '<hr>';
-		echo  Components::show_me_things();
+		// echo  Components::show_me_things();
 	}
 
 	public function add_to_head( $content )
@@ -71,9 +68,9 @@ class Builder {
 
 	public function build_header()
 	{
-		foreach($this->body_items as $item)
+		foreach($this->header_items as $item)
 		{
-			$this->sections->append_head_content($item);
+			$this->append_head_content($item);
 		}
 	}
 
@@ -81,7 +78,7 @@ class Builder {
 	{
 		foreach($this->body_items as $item)
 		{
-			$this->sections->append_body_content($item);
+			$this->append_body_content($item);
 		}
 
 	}
@@ -91,7 +88,7 @@ class Builder {
 		$this->build_header();
 		$this->build_body();
 
-		$this->email = $this->sections->get_entire_email();
+		$this->email = $this->get_entire_email();
 	}
 
 	public function get_email()

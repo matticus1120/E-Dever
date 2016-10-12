@@ -10,7 +10,8 @@ function do_full_width_band() { ?>
 <td align="center" valign="top" width="600" style="width:600px;">
 	<![endif]-->
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
-		<tbody><tr>
+		<tbody>
+      <tr>
 			<td id="templateHeader" valign="top">
 				<table border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%">
 					<tbody>
@@ -20,16 +21,8 @@ function do_full_width_band() { ?>
 									<tbody>
 										<tr>
 											<td align="center" style="padding-right: 0; padding-left: 0; padding-top: 44px; padding-bottom: 44px; text-align:center;font-family: 'Arial', sans-serif, Oswald ;font-weight:300;" valign="center">
-												<h2 style="text-align:center; text-transform: uppercase;color:#dbd8d1;font-size:48px;font-family: 'Arial', sans-serif, Oswald; font-weight:300;">
-													A
-													MODEL
-													SUITE
-													TO<br>
-
-													WRITE
-													HOME
-													ABOUT.</h2>
-												</td>
+												
+											</td>
 											</tr>
 										</tbody>
 									</table>
@@ -39,7 +32,8 @@ function do_full_width_band() { ?>
 					</table>
 				</td>
 			</tr>
-</tbody></table><!--[if mso]>
+      </tbody>
+</table><!--[if mso]>
 </td>
 <![endif]-->
 <!--[if mso]>
@@ -53,7 +47,7 @@ function do_full_width_band() { ?>
 
 
 function do_button() { ?>
-<table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer">
+<table border="0" cellpadding="0" cellspacing="0" class="table-button">
 	<tbody>
 		<tr>
 			<td align="center" style="-webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; width: 100%;">
@@ -63,15 +57,15 @@ function do_button() { ?>
 			</tr>
 		</tbody>
 	</table>
-	<?php }
+<?php }
 
 
 
 function do_spacer_row() { ?>
-	<table class="spacer">
+	<table border="0" cellpadding="0" cellspacing="0" class="spacer-table" width="100%">
 		<tbody>
 			<tr class="spacer">
-				<td height="20">&nbsp;</td>
+				<td height="20" style="padding: 0 0 0 0;">&nbsp;</td>
 			</tr>
 		</tbody>
 	</table>

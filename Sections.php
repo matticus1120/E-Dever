@@ -2,7 +2,9 @@
 
 namespace Builder;
 
-class Sections {
+include 'Components.php';
+
+class Sections  extends Components {
 
 	private static $instance;
 
@@ -53,38 +55,29 @@ class Sections {
 
 	public function get_head()
 	{
+		$this->set_head();
 		return $this->head;
 	}
 
 	public function get_head_start()
 	{
-		ob_start( );
-			include './sections/head_start.php';
-		$output = ob_get_clean();
-
-		return $output;
+		return $this->get_file( './sections/head_start.php' );
 	}
 
 	public function get_head_content()
 	{
-		return $this->head;
+		return $this->head_content;
 	}
 
 	public function append_head_content( $content = null )
 	{
-		$this->head_content = $this->head_content . $content;
+		$this->head_content .= $content;
 	}
 
 	public function get_head_end()
 	{
-		ob_start( );
-			include './sections/head_end.php';
-		$output = ob_get_clean();
-
-		return $output;
+		return $this->get_file( './sections/head_end.php' );
 	}
-
-
 
 
 
@@ -96,7 +89,6 @@ class Sections {
 		$this->body = $this->get_body_start();
 		$this->body .= $this->get_body_content();
 		$this->body .= $this->get_body_end();
-
 	}
 
 	public function get_body()
@@ -107,11 +99,7 @@ class Sections {
 
 	public function get_body_start()
 	{
-		ob_start( );
-			include './sections/body_start.php';
-		$output = ob_get_clean();
-
-		return $output;
+		return $this->get_file('./sections/body_start.php' );
 	}
 
 	public function get_body_content()
@@ -126,11 +114,7 @@ class Sections {
 
 	public function get_body_end()
 	{
-		ob_start( );
-			include './sections/body_end.php';
-		$output = ob_get_clean();
-
-		return $output;
+		return $this->get_file( './sections/body_end.php' );
 	}
 
 }
