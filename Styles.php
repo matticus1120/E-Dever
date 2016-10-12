@@ -20,6 +20,9 @@ class Styles extends Sections {
 			'font-size' => '21px',
 			'line-height' => '25px',
 		],
+		'img' => [
+			'display' => 'block'
+		],
 		'html, body' => [
 			'padding' => '0',
 			'margin' => '0'
@@ -31,7 +34,7 @@ class Styles extends Sections {
 		'.container' => [
 			'width' => '600px',
 			'margin' => '0 auto'
-		]
+		],
 	];
 
 	public function __construct()

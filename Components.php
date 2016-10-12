@@ -25,7 +25,7 @@ class Components extends Helpers {
 	{
 		$class = ( isset($args['class']) ) ? $args['class'] : null;
 		$args['inline_styles'] = $this->get_class_styles_inline( $class );
-
+		
 		return $this->get_file( $this->dir_settings['component_dir'] . '/full-width-row.php', $args );
 	}
 
