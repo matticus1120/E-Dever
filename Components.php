@@ -22,31 +22,24 @@ class Components extends Helpers {
 		return $this->get_file( $this->dir_settings['component_dir'] . '/button.php', $args );
 	}
 
+	private function parse_template_var( $args )
+	{
+		$args['class'] = ( array_key_exists('class', $args ) ) ? $args['class'] : null;
+		$args['inline_styles'] = $this->get_class_styles_inline( $args['class'] );
+
+		return $args;
+	}
+
 	public function full_width_row( $args )
 	{
-		$class = ( isset($args['class']) ) ? $args['class'] : null;
-		$args['inline_styles'] = $this->get_class_styles_inline( $class );
-		
-		return $this->get_file( $this->dir_settings['component_dir'] . '/full-width-row.php', $args );
+		$array = $this->parse_template_var( $args );
+		return $this->get_file( $this->dir_settings['component_dir'] . '/full-width-row.php', $array );
 	}
 
 	public function container( $args )
 	{	
-		$class = ( isset($args['class']) ) ? $args['class'] : null;
-		$args['inline_styles'] = $this->get_class_styles_inline( $class );
-
-		return $this->get_file( $this->dir_settings['component_dir'] . '/container.php', $args );
-	}
-
-	public function container_chain( $args )
-	{	
-		$class = ( isset($args['class']) ) ? $args['class'] : null;
-		$args['inline_styles'] = $this->get_class_styles_inline( $class );
-
-		$this->wrapper_content = $this->container($args);
-
-		return $this;
-		// return $this->get_file( $this->dir_settings['component_dir'] . '/container.php', $args );
+		$array = $this->parse_template_var( $args );
+		return $this->get_file( $this->dir_settings['component_dir'] . '/container.php', $array );
 	}
 
 	public function image( $args )

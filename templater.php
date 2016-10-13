@@ -59,13 +59,13 @@ $header = $builder->full_width_row([
 	'class' => 'lime-header'
 ]);
 
-$builder->add_to_body($header);
+// $builder->add_to_body($header);
 
 
 /**
  * Top Section
  */
-$text_row = $builder->text('Im a row of text in a paragraph', 'h1');
+// $text_row = $builder->text('Im a row of text in a paragraph', 'h1');
 /*$text_row = $builder->text('Im a row of text in a paragraph', 'h1');
 $text_row .= $builder->text('When in doubt, add a subheading', 'h2');
 $text_row .= $builder->text('Now you have a paragraph', 'p');
@@ -76,10 +76,10 @@ $text_row .= $builder->text('Hey what the what', 'h3');
 
 
 $builder
-	->add( 'text', 'Im a row of text in a paragraph', 'h1')
-	->add( 'text', 'When in doubt, add a subheading', 'h2')
-	->add( 'text', 'Now you have a paragraph', 'p')
-	->add( 'text', 'Hey what the what', 'h3')
+	->add( 'text', 'CHAIN Im a row of text in a paragraph', 'h1')
+	->add( 'text', 'CHAIN When in doubt, add a subheading', 'h2')
+	->add( 'text', 'CHAIN Now you have a paragraph', 'p')
+	->add( 'text', 'CAHIN   Hey what the what', 'h3')
 	->wrap('container', [
 		'class' => 'simple-container'
 	])
@@ -93,7 +93,7 @@ $builder
 
 
 
-
+$text_row = '';
 
 $content = $text_row;
 
@@ -109,7 +109,7 @@ $full_content = $builder->container([
 	'class' => 'grey-bg'
 ]);
 
-$builder->add_to_body($full_content);
+// $builder->add_to_body($full_content);
 
 
 
@@ -128,18 +128,18 @@ $full_width_image = $builder->full_width_row([
 // example
 // 	$builder->add('')
 
-$builder->add_to_body($full_width_image);
+// $builder->add_to_body($full_width_image);
 
 
 
 /**
  * Secondary Section
  */
-$builder->add_to_body(
-	$builder->container([
-		'content' => $builder->get_file( './content/secondary-section.php')
-	])
-);
+// $builder->add_to_body(
+// 	$builder->container([
+// 		'content' => $builder->get_file( './content/secondary-section.php')
+// 	])
+// );
 
 /**
  * Footer
@@ -151,7 +151,7 @@ $footer = $builder->full_width_row([
 	'class' => 'bottom-footer'
 ]);
 
-$builder->add_to_body($footer);
+// $builder->add_to_body($footer);
 
 
 $builder->get_email();

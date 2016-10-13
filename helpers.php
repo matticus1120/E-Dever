@@ -21,6 +21,12 @@ class Helpers {
 		return static::$instance;
 	}
 
+	public function lt($data) { ?>
+		<script>
+			console.log( <?php echo json_encode($data) ; ?>)
+		</script>
+	<?php }
+
 	public function get_file( $file, $args = [] )
 	{
 		ob_start( );
@@ -37,9 +43,8 @@ class Helpers {
 
 	public function wrap( $methodName, $args )
 	{
-		$wrapper_args['content'] = $this->added_content;
-		array_merge($wrapper_args, $args);
-		$this->added_content = $this->$methodName($wrapper_args);
+		$args['content'] = $this->added_content;
+		$this->added_content = $this->$methodName($args);
 		return $this;
 	}
 
