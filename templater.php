@@ -40,6 +40,9 @@ $builder->set_styles([
 	],
 	'.full-width-image-color' => [
 		'background-color' => '#9DA1B2'
+	],
+	'.grey-full-width' => [
+		'background-color' => '#4D7BE2'
 	]
 ]);
 
@@ -63,9 +66,34 @@ $builder->add_to_body($header);
  * Top Section
  */
 $text_row = $builder->text('Im a row of text in a paragraph', 'h1');
+/*$text_row = $builder->text('Im a row of text in a paragraph', 'h1');
 $text_row .= $builder->text('When in doubt, add a subheading', 'h2');
 $text_row .= $builder->text('Now you have a paragraph', 'p');
 $text_row .= $builder->text('Hey what the what', 'h3');
+*/
+
+
+
+
+$builder
+	->add( 'text', 'Im a row of text in a paragraph', 'h1')
+	->add( 'text', 'When in doubt, add a subheading', 'h2')
+	->add( 'text', 'Now you have a paragraph', 'p')
+	->add( 'text', 'Hey what the what', 'h3')
+	->wrap('container', [
+		'class' => 'simple-container'
+	])
+	->wrap('full_width_row',[
+		'class' => 'grey-full-width'
+	])
+	->add_to_body_content();
+
+
+
+
+
+
+
 
 $content = $text_row;
 

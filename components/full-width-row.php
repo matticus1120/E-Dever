@@ -1,5 +1,5 @@
 <?php extract($args) ?>
-<table border="0" cellpadding="0" cellspacing="0" width="100%" style="<?php echo $inline_styles; ?>" class="<?php echo $class; ?>">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="<?php echo $inline_styles; ?>" class="full-width-row <?php echo $class; ?>">
 	<tbody>
 		<tr>
 			<td>

@@ -13,7 +13,8 @@ class Components extends Helpers {
 
 	public function text( $content = '', $tag = 'p' )
 	{
-		return '<' . $tag . '>' . $content . '</' . $tag .'/>';
+		$html = '<' . $tag . '>' . $content . '</' . $tag .'/>';
+		return $html;
 	}
 
 	public function button( $args )
@@ -35,6 +36,17 @@ class Components extends Helpers {
 		$args['inline_styles'] = $this->get_class_styles_inline( $class );
 
 		return $this->get_file( $this->dir_settings['component_dir'] . '/container.php', $args );
+	}
+
+	public function container_chain( $args )
+	{	
+		$class = ( isset($args['class']) ) ? $args['class'] : null;
+		$args['inline_styles'] = $this->get_class_styles_inline( $class );
+
+		$this->wrapper_content = $this->container($args);
+
+		return $this;
+		// return $this->get_file( $this->dir_settings['component_dir'] . '/container.php', $args );
 	}
 
 	public function image( $args )
