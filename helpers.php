@@ -35,13 +35,13 @@ class Helpers {
 		return $output;
 	}
 
-	public function add( $methodName, $content, $args )
+	public function add( $methodName = '', $args = [] )
 	{
-		$this->added_content .= $this->$methodName($content, $args);
+		$this->added_content .= $this->$methodName( $args );
 		return $this;
 	}
 
-	public function wrap( $methodName, $args )
+	public function wrap( $methodName = '', $args = [] )
 	{
 		$args['content'] = $this->added_content;
 		$this->added_content = $this->$methodName($args);

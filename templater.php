@@ -18,9 +18,6 @@ $builder = new Builder();
  * Set Styles
  */
 $builder->set_styles([
-	'h2' => [
-		'color' => 'red'
-	],
 	'.grey-bg' => [
 		'background-color' => '#DADFE1',
 		'border-top' => 'solid 30px #999C9E',
@@ -43,6 +40,9 @@ $builder->set_styles([
 	],
 	'.grey-full-width' => [
 		'background-color' => '#4D7BE2'
+	],
+	'.bg-container' => [
+		'background-color' => '#EBE3AA'
 	]
 ]);
 
@@ -56,7 +56,7 @@ $image = $builder->image([
 
 $header = $builder->full_width_row([
 	'content' => $image,
-	'class' => 'lime-header'
+	'class' => 'lime-header, cool-header'
 ]);
 
 // $builder->add_to_body($header);
@@ -65,29 +65,41 @@ $header = $builder->full_width_row([
 /**
  * Top Section
  */
-// $text_row = $builder->text('Im a row of text in a paragraph', 'h1');
-/*$text_row = $builder->text('Im a row of text in a paragraph', 'h1');
-$text_row .= $builder->text('When in doubt, add a subheading', 'h2');
-$text_row .= $builder->text('Now you have a paragraph', 'p');
-$text_row .= $builder->text('Hey what the what', 'h3');
-*/
-
-
-
-
 $builder
-	->add( 'text', 'CHAIN Im a row of text in a paragraph', 'h1')
-	->add( 'text', 'CHAIN When in doubt, add a subheading', 'h2')
-	->add( 'text', 'CHAIN Now you have a paragraph', 'p')
-	->add( 'text', 'CAHIN   Hey what the what', 'h3')
+	->add('text', [
+		'content' => 'Im a row of text in a paragraph',
+		'tag' => 'h1'
+	])
+	->add('text', [
+		'content' => 'Look at me I am a heading of the second level.',
+		'tag' => 'h2'
+	])
+	->add('text', [
+		'content' => 'Look at me, im a third heading',
+		'tag' => 'h3'
+	])
 	->wrap('container', [
-		'class' => 'simple-container'
+		'class' => ['simple-container']
 	])
 	->wrap('full_width_row',[
-		'class' => 'grey-full-width'
+		'class' => ['grey-full-width']
 	])
 	->add_to_body_content();
 
+$builder
+	->add('button', [
+		'content' => 'Convert dammit!',
+		'url' => "http://google.ca",
+	])
+	->add('image', [
+		'src' => 'http://clients.blackjetinteractive.com/eblast/vanguard/images/model-home.jpg',
+		'class' => ['oh-my']
+	])
+	->wrap('container', [
+		// 'class' => 'simple-container bg-container align-center'
+		'class' => ['simple-container', 'bg-container', 'align-center']
+	])
+	->add_to_body_content();
 
 
 
