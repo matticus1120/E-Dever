@@ -53,15 +53,56 @@ class Styles extends Sections {
 			'padding-left' => '23px',
 			'border' => '1px solid #69c9ba',
 			'font-weight' => '300'
-		]
+		],
 
+	];
+
+	public $font_families = [
+		'font-family-1' => [
+			'Roboto, sans-serif',
+			'Century Gothic, sans-serif',
+			'Arial, sans-serif',
+		],
+		'font-family-2' => [
+			'Merriweather, serif',
+			'MS Serif, serif',
+			'Georgia, sans-serif'
+		]
 	];
 
 	public function build_styles()
 	{
 		$this->set_styles();
+		$this->set_font_familiy_styles();
 		$default_styles = $this->get_file( './styles/defaults.css.php', $this->styles );
 		$this->add_to_header($default_styles);
+	}
+
+	public function get_font_rules($font_handle)
+	{
+		$rules = '';
+		$family = $this->font_families[$font_handle];
+		foreach($family as $key => $rule) {
+			$rules .= $rule;
+			$rules .= ( $key < count($family) - 1 ) ? ', ' : '';
+		}
+		return $rules;
+	}
+
+	public function add_font_family($family, $rules) {
+		$this->font_families[$family] = $rules;
+	}
+
+	public function add_font_families( $familes ) {
+		foreach($familes as $family => $rules) {
+			$this->add_font_family( $family, $rules );
+		}
+	}
+
+	public function set_font_familiy_styles()
+	{
+		$this->styles['body']['font-family'] = $this->get_font_rules( 'font-family-1' );
+		$this->styles['h1, h2, h3, h4, h5']['font-family'] = $this->get_font_rules( 'font-family-2' );
 	}
 
 	public function set_styles($styles = [])

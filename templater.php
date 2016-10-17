@@ -14,6 +14,23 @@ require_once('Builder.php');
 
 $builder = new Builder();
 
+$fonts = [
+	'body-font' => [
+		"'Domine', serif",
+		"Palatino Linotype, sans-serif",
+		"Lucida Grande, serif",
+	],
+	'heading-font' => [
+		"Lucida Sans, sans-serif",
+		"'Anton', sans-serif",
+		"Arial Black, sans-serif"
+	],
+];
+
+$builder->add_font_families($fonts);
+
+$builder->lt($builder->font_families);
+
 /**
  * Set Styles
  */
@@ -43,6 +60,25 @@ $builder->set_styles([
 	],
 	'.bg-container' => [
 		'background-color' => '#EBE3AA'
+	],
+	'.polaroid' => [
+		'padding-top' => '10px',
+		'padding-right' => '10px',
+		'padding-bottom' => '40px',
+		'padding-left' => '10px',
+	],
+	'.lazer-cat' => [
+		'color' => '#F34573',
+		'border' => 'solid thin'
+	],
+	'.simple-container' => [
+		'padding-top' => '20px',
+		'padding-bottom' => '20px',
+		'font-weight' => '100',
+		'font-family' => $builder->get_font_rules( 'heading-font' )
+	],
+	'.light-blue' => [
+		'background-color' => '#C5DEF2'
 	]
 ]);
 
@@ -65,14 +101,15 @@ $header = $builder->full_width_row([
 /**
  * Top Section
  */
+$builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto" rel="stylesheet">');
+$builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Anton|Domine|Josefin+Slab" rel="stylesheet">');
+
+
+
 $builder
 	->add('elem', [
 		'content' => 'Im a row of text in a paragraph',
 		'tag' => 'h1'
-	])
-	->add('elem', [
-		'content' => 'Look at me I am a heading of the second level.',
-		'tag' => 'h2'
 	])
 	->add('elem', [
 		'content' => 'Look at me, im a third heading',
@@ -90,13 +127,20 @@ $builder
 	->add('button', [
 		'content' => 'Convert dammit!',
 		'url' => "http://google.ca",
+		'class' => 'serif-button'
 	])
+	->wrap('container', [
+		'class' => ['simple-container', 'bg-container', 'align-center'],
+	])
+	->add_to_body_content();
+
+$builder	
 	->add('image', [
 		'src' => 'http://clients.blackjetinteractive.com/eblast/vanguard/images/model-home.jpg',
 		'class' => ['oh-my']
 	])
-	->wrap('container', [
-		'class' => ['simple-container', 'bg-container', 'align-center'],
+	->wrap('full_width_row', [
+		'class' => ['light-blue'],
 	])
 	->add_to_body_content();
 
@@ -107,14 +151,23 @@ $builder
 		]),
 		'class' => 'one-class, two-class'
 	])
-	->add('image', [
-		'src' => 'https://s-media-cache-ak0.pinimg.com/originals/f3/d4/b4/f3d4b47f240fd6a1353c1c00e67e095a.jpg'
-	])
 	->wrap('container', [
 		'width' => '300px'
 	])
 	->add_to_body_content();
 
+$builder
+	->add('image', [
+		'src' => 'https://s-media-cache-ak0.pinimg.com/originals/f3/d4/b4/f3d4b47f240fd6a1353c1c00e67e095a.jpg',
+		'class' => 'polaroid, lazer-cat'
+	])
+	->wrap('container', [
+		'width' => '300px'
+	])
+	->wrap('full_width_row', [
+		'class' => ['light-blue'],
+	])
+	->add_to_body_content();
 
 $builder->get_email();
 
