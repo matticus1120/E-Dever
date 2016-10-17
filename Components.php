@@ -28,7 +28,6 @@ class Components extends Helpers {
 	public function button( $args )
 	{
 		$array = $this->parse_template_var( $args );
-		$array['class'] .= 'button';
 		return $this->get_file( $this->dir_settings['component_dir'] . '/button.php', $array );
 	}
 

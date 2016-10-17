@@ -3,7 +3,7 @@
 	<tbody>
 		<tr>
 			<td  style="<?php echo $inline_styles; ?>">
-				<a class="<?php echo $class ?>" href="<?php echo $url ?>" target="_blank" style="">
+				<a class="button <?php echo implode($class) ?>" href="<?php echo $url ?>" target="_blank" style="">
 					<?php echo $content; ?>
 				</a>
 			</td>

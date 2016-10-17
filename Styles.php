@@ -91,9 +91,10 @@ class Styles extends Sections {
 					$inline_styles .= $this->get_styles_inline( $this->styles[ '.' . $class ]  );
 				}
 			}
+			return $inline_styles;
 		}	
 		else {
-			return false;
+			return [];
 		}
 		
 	}

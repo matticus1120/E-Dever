@@ -3,7 +3,7 @@
 	<tbody>
 		<tr>
 			<td valign="top" align="center">
-				<table class="container <?php echo $class; ?>" border="0" cellpadding="0" cellspacing="0"  style="width: 600px; max-width: 600px; <?php echo $inline_styles; ?>" width="600px">
+				<table class="container <?php echo implode($class); ?>" border="0" cellpadding="0" cellspacing="0"  style="width: 600px; max-width: 600px; <?php echo $inline_styles; ?>" width="600px">
 					<tbody>
 						<tr>
 							<td>

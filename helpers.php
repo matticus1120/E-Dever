@@ -37,6 +37,7 @@ class Helpers {
 
 	public function add( $methodName = '', $args = [] )
 	{
+		$args['class'] = ( !isset($args['class']) ) ? [] : $args['class'];
 		$this->added_content .= $this->$methodName( $args );
 		return $this;
 	}

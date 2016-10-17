@@ -96,7 +96,6 @@ $builder
 		'class' => ['oh-my']
 	])
 	->wrap('container', [
-		// 'class' => 'simple-container bg-container align-center'
 		'class' => ['simple-container', 'bg-container', 'align-center']
 	])
 	->add_to_body_content();
