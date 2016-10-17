@@ -7,6 +7,7 @@ class Helpers {
 	public $dir_settings = [
 		'component_dir' =>  __DIR__  .'/components/',
 		'section_dir' =>  __DIR__  .'/sections/',
+		'content_dir' => __DIR__ .'/content/'
 	];
 
 	public $added_content = '';
@@ -37,7 +38,7 @@ class Helpers {
 
 	public function add( $methodName = '', $args = [] )
 	{
-		$args['class'] = ( !isset($args['class']) ) ? [] : $args['class'];
+		$args['class'] = ( !isset($args['class']) ) ? [] : $this->parse_class_args( $args['class']);
 		$this->added_content .= $this->$methodName( $args );
 		return $this;
 	}
@@ -45,6 +46,7 @@ class Helpers {
 	public function wrap( $methodName = '', $args = [] )
 	{
 		$args['content'] = $this->added_content;
+		$args['class'] = ( !isset($args['class']) ) ? [] : $this->parse_class_args( $args['class']);
 		$this->added_content = $this->$methodName($args);
 		return $this;
 	}

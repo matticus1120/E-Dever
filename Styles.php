@@ -21,7 +21,8 @@ class Styles extends Sections {
 			'line-height' => '25px',
 		],
 		'img' => [
-			'display' => 'block'
+			'display' => 'block',
+			'max-width' => '100%'
 		],
 		'html, body' => [
 			'padding' => '0',

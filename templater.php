@@ -66,15 +66,15 @@ $header = $builder->full_width_row([
  * Top Section
  */
 $builder
-	->add('text', [
+	->add('elem', [
 		'content' => 'Im a row of text in a paragraph',
 		'tag' => 'h1'
 	])
-	->add('text', [
+	->add('elem', [
 		'content' => 'Look at me I am a heading of the second level.',
 		'tag' => 'h2'
 	])
-	->add('text', [
+	->add('elem', [
 		'content' => 'Look at me, im a third heading',
 		'tag' => 'h3'
 	])
@@ -96,73 +96,24 @@ $builder
 		'class' => ['oh-my']
 	])
 	->wrap('container', [
-		'class' => ['simple-container', 'bg-container', 'align-center']
+		'class' => ['simple-container', 'bg-container', 'align-center'],
 	])
 	->add_to_body_content();
 
-
-
-
-
-$text_row = '';
-
-$content = $text_row;
-
-$button = $builder->button([
-	'content' => 'You should come to my stuff',
-	'url' => 'http://blackjet.ca/'
-]);
-
-$content .= $button;
-
-$full_content = $builder->container([
-	'content' => $content,
-	'class' => 'grey-bg'
-]);
-
-// $builder->add_to_body($full_content);
-
-
-
-$image = $builder->image([
-	'src' => 'http://clients.blackjetinteractive.com/eblast/vanguard/images/model-home.jpg'
-]);
-
-$full_width_image = $builder->full_width_row([
-	'content' => $builder->container([
-		'content' => $image,
-		'class' => 'nothin'
-	]),
-	'class' => 'full-width-image-color'
-]);
-
-// example
-// 	$builder->add('')
-
-// $builder->add_to_body($full_width_image);
-
-
-
-/**
- * Secondary Section
- */
-// $builder->add_to_body(
-// 	$builder->container([
-// 		'content' => $builder->get_file( './content/secondary-section.php')
-// 	])
-// );
-
-/**
- * Footer
- */
-$footer = $builder->full_width_row([
-	'content' => $builder->container([
-		'content' => 'im in the footer',
-	]),
-	'class' => 'bottom-footer'
-]);
-
-// $builder->add_to_body($footer);
+$builder
+	->add('text_block', [
+		'content' => $builder->get_content([
+			'file_name' => 'secondary-section.php'
+		]),
+		'class' => 'one-class, two-class'
+	])
+	->add('image', [
+		'src' => 'https://s-media-cache-ak0.pinimg.com/originals/f3/d4/b4/f3d4b47f240fd6a1353c1c00e67e095a.jpg'
+	])
+	->wrap('container', [
+		'width' => '300px'
+	])
+	->add_to_body_content();
 
 
 $builder->get_email();
