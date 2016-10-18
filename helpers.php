@@ -36,9 +36,34 @@ class Helpers {
 		return $output;
 	}
 
+	public function get_json_file_content( $file )
+	{
+		$json = file_get_contents( $file );
+		return json_decode( $json, true );
+	}
+
+	public function parse_template_var( $args )
+	{
+		$args['class'] = ( array_key_exists('class', $args ) ) ? $this->parse_class_args($args['class']) : null;
+		$args['class_outer'] = ( array_key_exists('class_outer', $args ) ) ? $this->parse_class_args($args['class_outer']) : null;
+		$args['class_wrapper'] = ( array_key_exists('class_wrapper', $args ) ) ? $this->parse_class_args($args['class_wrapper'] ): null;
+
+		return $args;
+	}
+
+	public function set_inline_class_args( $args )
+	{
+		$args['class_inline'] = $this->get_class_styles_inline( $args['class'] );
+		$args['class_outer_inline'] = $this->get_class_styles_inline( $args['class_outer'] );
+		$args['class_wrapper_inline'] = $this->get_class_styles_inline( $args['class_wrapper'] );
+
+		return $args;
+	}
+
 	public function add( $methodName = '', $args = [] )
 	{
-		$args['class'] = ( !isset($args['class']) ) ? [] : $this->parse_class_args( $args['class']);
+		$args = $this->parse_template_var( $args );
+		$args = $this->set_inline_class_args( $args );
 		$this->added_content .= $this->$methodName( $args );
 		return $this;
 	}
@@ -46,7 +71,8 @@ class Helpers {
 	public function wrap( $methodName = '', $args = [] )
 	{
 		$args['content'] = $this->added_content;
-		$args['class'] = ( !isset($args['class']) ) ? [] : $this->parse_class_args( $args['class']);
+		$args = $this->parse_template_var( $args );
+		$args = $this->set_inline_class_args( $args );
 		$this->added_content = $this->$methodName($args);
 		return $this;
 	}

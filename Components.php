@@ -17,37 +17,30 @@ class Components extends Helpers {
 		return $html;
 	}
 
-	private function parse_template_var( $args )
-	{
-		$args['class'] = ( array_key_exists('class', $args ) ) ? $args['class'] : null;
-		$args['inline_styles'] = ( array_key_exists('class', $args ) ) ? $this->get_class_styles_inline( $args['class'] ) : null;
-
-		return $args;
-	}
 
 	public function text_block( $args )
 	{
-		$array = $this->parse_template_var( $args );
+		$args = $this->parse_template_var( $args );
+		$array = $this->set_inline_class_args( $args );
 		return $this->get_file( $this->dir_settings['component_dir'] . '/text-block.php', $array );
 	}
 
 	public function button( $args )
 	{
-		$array = $this->parse_template_var( $args );
+		$args = $this->parse_template_var( $args );
+		$array = $this->set_inline_class_args( $args );
 		return $this->get_file( $this->dir_settings['component_dir'] . '/button.php', $array );
 	}
 
 	public function full_width_row( $args )
 	{
-		$array = $this->parse_template_var( $args );
-		return $this->get_file( $this->dir_settings['component_dir'] . '/full-width-row.php', $array );
+		return $this->get_file( $this->dir_settings['component_dir'] . '/full-width-row.php', $args );
 	}
 
 	public function container( $args )
 	{	
-		$array = $this->parse_template_var( $args );
-		$array['width'] = ( isset( $args['width'] ) ) ? $args['width'] : '600px';
-		return $this->get_file( $this->dir_settings['component_dir'] . '/container.php', $array );
+		$args['width'] = ( array_key_exists('width', $args) ) ? $args['width'] : '600px';
+		return $this->get_file( $this->dir_settings['component_dir'] . '/container.php', $args );
 	}
 
 	public function image( $args )

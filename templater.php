@@ -29,59 +29,13 @@ $fonts = [
 
 $builder->add_font_families($fonts);
 
-$builder->lt($builder->font_families);
+// $builder->lt($builder->font_families);
+
 
 /**
  * Set Styles
  */
-$builder->set_styles([
-	'.grey-bg' => [
-		'background-color' => '#DADFE1',
-		'border-top' => 'solid 30px #999C9E',
-		'padding-top' => '30px',
-		'padding-bottom' => '30px',
-	],
-	'.lime-header' => [
-		'background-color' => '#A2DED0',
-		'padding-top' => '30px',
-		'padding-bottom' => '30px'
-	],
-	'.bottom-footer' => [
-		'color' => '#E3E7EB',
-		'background-color' => '#2E2F30',
-		'padding-top' => '30px',
-		'padding-bottom' => '30px'
-	],
-	'.full-width-image-color' => [
-		'background-color' => '#9DA1B2'
-	],
-	'.grey-full-width' => [
-		'background-color' => '#4D7BE2'
-	],
-	'.bg-container' => [
-		'background-color' => '#EBE3AA'
-	],
-	'.polaroid' => [
-		'padding-top' => '10px',
-		'padding-right' => '10px',
-		'padding-bottom' => '40px',
-		'padding-left' => '10px',
-	],
-	'.lazer-cat' => [
-		'color' => '#F34573',
-		'border' => 'solid thin'
-	],
-	'.simple-container' => [
-		'padding-top' => '20px',
-		'padding-bottom' => '20px',
-		'font-weight' => '100',
-		'font-family' => $builder->get_font_rules( 'heading-font' )
-	],
-	'.light-blue' => [
-		'background-color' => '#C5DEF2'
-	]
-]);
-
+$builder->set_styles( $builder->get_json_styles( __DIR__ . '/styles/custom.css.json') );
 
 /**
  * Header
@@ -119,7 +73,7 @@ $builder
 		'class' => ['simple-container']
 	])
 	->wrap('full_width_row',[
-		'class' => ['grey-full-width']
+		'class' => 'grey-full-width, vertical-padding'
 	])
 	->add_to_body_content();
 
@@ -127,7 +81,9 @@ $builder
 	->add('button', [
 		'content' => 'Convert dammit!',
 		'url' => "http://google.ca",
-		'class' => 'serif-button'
+		'class' => 'serif-button, phat-button',
+		'class_outer' => 'crazy-outer-classer',
+		'class_wrapper' => 'crazy-wrapper-class'
 	])
 	->wrap('container', [
 		'class' => ['simple-container', 'bg-container', 'align-center'],
@@ -141,8 +97,8 @@ $builder
 	])
 	->wrap('full_width_row', [
 		'class' => ['light-blue'],
-	])
-	->add_to_body_content();
+	]);
+	// ->add_to_body_content();
 
 $builder
 	->add('text_block', [
@@ -153,21 +109,22 @@ $builder
 	])
 	->wrap('container', [
 		'width' => '300px'
-	])
-	->add_to_body_content();
+	]);
+	// ->add_to_body_content();
 
 $builder
 	->add('image', [
 		'src' => 'https://s-media-cache-ak0.pinimg.com/originals/f3/d4/b4/f3d4b47f240fd6a1353c1c00e67e095a.jpg',
-		'class' => 'polaroid, lazer-cat'
+		'class' => 'lazer-cat',
+		'outer_class' => 'polaroid'
 	])
 	->wrap('container', [
 		'width' => '300px'
 	])
 	->wrap('full_width_row', [
 		'class' => ['light-blue'],
-	])
-	->add_to_body_content();
+	]);
+	// ->add_to_body_content();
 
 $builder->get_email();
 
