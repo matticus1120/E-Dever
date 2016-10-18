@@ -44,9 +44,9 @@ class Helpers {
 
 	public function parse_template_var( $args )
 	{
-		$args['class'] = ( array_key_exists('class', $args ) ) ? $this->parse_class_args($args['class']) : null;
-		$args['class_outer'] = ( array_key_exists('class_outer', $args ) ) ? $this->parse_class_args($args['class_outer']) : null;
-		$args['class_wrapper'] = ( array_key_exists('class_wrapper', $args ) ) ? $this->parse_class_args($args['class_wrapper'] ): null;
+		$args['class'] = ( array_key_exists('class', $args ) ) ? $this->parse_class_args($args['class']) : [];
+		$args['class_outer'] = ( array_key_exists('class_outer', $args ) ) ? $this->parse_class_args($args['class_outer']) : [];
+		$args['class_wrapper'] = ( array_key_exists('class_wrapper', $args ) ) ? $this->parse_class_args($args['class_wrapper'] ): [];
 
 		return $args;
 	}

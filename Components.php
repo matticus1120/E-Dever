@@ -27,9 +27,9 @@ class Components extends Helpers {
 
 	public function button( $args )
 	{
-		$args = $this->parse_template_var( $args );
-		$array = $this->set_inline_class_args( $args );
-		return $this->get_file( $this->dir_settings['component_dir'] . '/button.php', $array );
+		// $args = $this->parse_template_var( $args );
+		// $array = $this->set_inline_class_args( $args );
+		return $this->get_file( $this->dir_settings['component_dir'] . '/button.php', $args );
 	}
 
 	public function full_width_row( $args )

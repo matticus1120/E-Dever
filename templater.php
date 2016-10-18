@@ -93,12 +93,13 @@ $builder
 $builder	
 	->add('image', [
 		'src' => 'http://clients.blackjetinteractive.com/eblast/vanguard/images/model-home.jpg',
-		'class' => ['oh-my']
+		'class' => ['oh-my'],
+		'class_outer' => 'cool-image-outer, asdf-asf'
 	])
 	->wrap('full_width_row', [
 		'class' => ['light-blue'],
-	]);
-	// ->add_to_body_content();
+	])
+	->add_to_body_content();
 
 $builder
 	->add('text_block', [
@@ -108,23 +109,24 @@ $builder
 		'class' => 'one-class, two-class'
 	])
 	->wrap('container', [
-		'width' => '300px'
-	]);
-	// ->add_to_body_content();
+		'width' => '400px'
+	])
+	->add_to_body_content();
 
 $builder
 	->add('image', [
 		'src' => 'https://s-media-cache-ak0.pinimg.com/originals/f3/d4/b4/f3d4b47f240fd6a1353c1c00e67e095a.jpg',
 		'class' => 'lazer-cat',
-		'outer_class' => 'polaroid'
+		'class_outer' => 'polaroid',
+		'class_wrapper' => 'wrapper-padding'
 	])
 	->wrap('container', [
 		'width' => '300px'
 	])
 	->wrap('full_width_row', [
 		'class' => ['light-blue'],
-	]);
-	// ->add_to_body_content();
+	])
+	->add_to_body_content();
 
 $builder->get_email();
 
