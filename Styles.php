@@ -8,23 +8,28 @@ class Styles extends Sections {
 
 	public $styles = [];
 
-	public $font_families = [
-		'font-family-1' => [
-			'Century Gothic, sans-serif',
-			'Arial, sans-serif',
-		],
-		'font-family-2' => [
-			'MS Serif, serif',
-			'Georgia, sans-serif'
-		]
-	];
+	public $font_families = [];
 
 	public function build_styles()
 	{
-		$this->set_styles();
+		$default_fonts = $this->get_json_data( __DIR__ . '/styles/defaults-fonts.css.json' );
+		$this->add_font_families( $default_fonts );
 		$this->set_font_familiy_styles();
-		$default_styles = $this->get_file( './styles/defaults.css.php', $this->styles );
-		$this->add_to_header($default_styles);
+
+		$defaults = $this->get_json_data( __DIR__ . '/styles/defaults.css.json' );
+		$this->add_to_styles($defaults);
+	}
+
+	public function build_fonts()
+	{
+		$default_fonts = $this->get_json_data( __DIR__ . '/styles/defaults-.fonts.css.json' );
+	}
+
+	public function add_to_styles($styles = [])
+	{
+		$this->styles = array_merge($this->styles, $styles);
+		$styles = $this->get_file( './styles/style-builder.php', $this->styles );
+		$this->add_to_header($styles, 'main-styles');
 	}
 
 	public function get_font_rules($font_handle)
@@ -54,13 +59,8 @@ class Styles extends Sections {
 		$this->styles['h1, h2, h3, h4, h5']['font-family'] = $this->get_font_rules( 'font-family-2' );
 	}
 
-	public function set_styles($styles = [])
-	{
-		$defaults = $this->get_json_styles( __DIR__ . '/styles/defaults.css.json' );
-		$this->styles = array_merge( $defaults, $styles );
-	}
 
-	public function get_json_styles( $file )
+	public function get_json_data( $file )
 	{
 		$styles =  $this->get_json_file_content( $file );
 		return $styles;

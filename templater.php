@@ -28,15 +28,13 @@ $fonts = [
 ];
 
 $builder->add_font_families($fonts);
-
-// $builder->lt($builder->font_families);
+		$builder->lt($builder->font_families);
 
 
 /**
  * Set Styles
  */
-$builder->set_styles( $builder->get_json_styles( __DIR__ . '/styles/custom.css.json') );
-
+$builder->add_to_styles( $builder->get_json_data( __DIR__ . '/styles/custom.css.json') );
 /**
  * Header
  */

@@ -1,9 +1,11 @@
 {
 	".crazy-outer-classer": {
-		"border-bottom": "solid 10px #8600F8"
+		"color" : "red",
+		"border" : "none"
 	},
 	".crazy-wrapper-class": {
-		"border-top": "solid 20px #1E00D0"
+		"color" : "blue",
+		"border" : "none"
 	},
 	".vertical-padding": {
 		"padding-top": "20px",
@@ -19,6 +21,12 @@
 		"background-color" : "#A2DED0",
 		"padding-top" : "30px",
 		"padding-bottom" : "30px"
+	},
+	".oh-my": {
+		"padding": "10px"
+	},
+	".cool-image-outer": {
+		"border": "solid thin #6C7A89"
 	},
 	".bottom-footer" : {
 		"color" : "#E3E7EB",
@@ -37,10 +45,11 @@
 		"background-color" : "#9DA1B2"
 	},
 	".grey-full-width" : {
-		"background-color" : "#4D7BE2"
+		"background-color" : "#89C4F4",
+		"color": "#FFF"
 	},
 	".bg-container" : {
-		"background-color" : "#EBE3AA"
+		"background-color" : "#1F4788"
 	},
 	".polaroid" : {
 		"padding-top" : "10px",
@@ -65,7 +74,7 @@
 		"text-align" : "center"
 	},
 	".phat-button": {
-		"color": "#6952a5",
-		"border-color": "#6952a5"
+		"color": "#ECF0F1",
+		"border-color": "#ECF0F1"
 	}
 }	

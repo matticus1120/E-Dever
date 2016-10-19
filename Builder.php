@@ -49,9 +49,14 @@ class Builder extends Styles {
 		$this->head[] = $content;
 	}
 
-	public function add_to_header($content)
+	public function add_to_header($content, $key = false)
 	{
-		$this->header_items[] = $content;
+		if( $key ) {
+			$this->header_items[$key] = $content;
+		}
+		else {
+			$this->header_items[] = $content;
+		}
 	}
 
 	public function add_to_body($content)
