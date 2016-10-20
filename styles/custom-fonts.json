@@ -1,0 +1,12 @@
+{
+	"body-font": [
+		"'Domine', serif",
+		"Palatino Linotype, sans-serif",
+		"Lucida Grande, serif"
+	],
+	"heading-font": [
+		"Lucida Sans, sans-serif",
+		"'Anton', sans-serif",
+		"Arial Black, sans-serif"
+	]
+}

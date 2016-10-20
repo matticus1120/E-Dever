@@ -14,27 +14,25 @@ require_once('Builder.php');
 
 $builder = new Builder();
 
-$fonts = [
-	'body-font' => [
-		"'Domine', serif",
-		"Palatino Linotype, sans-serif",
-		"Lucida Grande, serif",
-	],
-	'heading-font' => [
-		"Lucida Sans, sans-serif",
-		"'Anton', sans-serif",
-		"Arial Black, sans-serif"
-	],
-];
 
-$builder->add_font_families($fonts);
-		$builder->lt($builder->font_families);
+
+$builder->add_style_vars([
+	'border-cool' => 'solid 10px #DFDFDF',
+	'off-white' => '#E5F5F5'
+]);
 
 
 /**
  * Set Styles
  */
 $builder->add_to_styles( $builder->get_json_data( __DIR__ . '/styles/custom.css.json') );
+
+
+$custom_fonts = $builder->get_json_data( __DIR__ . '/styles/custom-fonts.json' );
+// $builder->lt($builder->font_families);
+$builder->add_font_families( $custom_fonts );
+// $builder->lt($builder->font_families);
+
 /**
  * Header
  */

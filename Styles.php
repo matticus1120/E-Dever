@@ -9,6 +9,7 @@ class Styles extends Sections {
 	public $styles = [];
 
 	public $font_families = [];
+	public $style_vars = [];
 
 	public function build_styles()
 	{
@@ -20,14 +21,31 @@ class Styles extends Sections {
 		$this->add_to_styles($defaults);
 	}
 
-	public function build_fonts()
+	public function replace_style_vars($style_arr)
 	{
-		$default_fonts = $this->get_json_data( __DIR__ . '/styles/defaults-.fonts.css.json' );
+		foreach($style_arr as $key => $arr) {
+			foreach($arr as $selector => $value) {
+				if(array_key_exists( $value , $this->style_vars)) {
+					$style_arr[$key][$selector] = str_replace( $value, $this->style_vars[$value], $style_arr[$key][$selector] );
+				}
+			}
+		}
+		return $style_arr;
+	}
+
+	public function add_style_vars($vars)
+	{
+		$array = [];
+		foreach($vars as $key => $arr) {
+			$array[ '$' . $key ] = $arr;
+		}
+		$this->style_vars = array_merge($this->style_vars, $array);
 	}
 
 	public function add_to_styles($styles = [])
 	{
-		$this->styles = array_merge($this->styles, $styles);
+		$this->replace_style_vars($styles);
+		$this->styles = array_merge($this->styles, $this->replace_style_vars($styles));
 		$styles = $this->get_file( './styles/style-builder.php', $this->styles );
 		$this->add_to_header($styles, 'main-styles');
 	}
