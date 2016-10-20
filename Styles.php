@@ -15,12 +15,12 @@ class Styles extends Sections {
 	{
 		$default_fonts = $this->get_json_data( __DIR__ . '/styles/defaults-fonts.css.json' );
 		$this->add_font_families( $default_fonts );
-		$this->set_font_familiy_styles();
 
 		$defaults = $this->get_json_data( __DIR__ . '/styles/defaults.css.json' );
 		$this->add_to_styles($defaults);
 	}
 
+	/*replace variables in PHP CSS*/
 	public function replace_style_vars($style_arr)
 	{
 		foreach($style_arr as $key => $arr) {
@@ -33,10 +33,9 @@ class Styles extends Sections {
 		return $style_arr;
 	}
 
+	/*replace font variables in PHP CSS*/
 	public function replace_font_vars($style_arr)
 	{
-		$this->lt($style_arr);
-		// $this->lt( $this->font_families);
 		$array = $style_arr;
 		foreach($style_arr as $key => $arr) {
 			foreach($arr as $selector => $value) {
@@ -45,10 +44,10 @@ class Styles extends Sections {
 				}
 			}
 		}
-		$this->lt($style_arr);
 		return $style_arr;
 	}
 
+	/*add variable definitions*/
 	public function add_style_vars($vars)
 	{
 		$array = [];
@@ -58,6 +57,7 @@ class Styles extends Sections {
 		$this->style_vars = array_merge($this->style_vars, $array);
 	}
 
+	/*add a block of PHP CSS*/
 	public function add_to_styles($styles = [])
 	{
 		$this->replace_style_vars($styles);
@@ -68,6 +68,7 @@ class Styles extends Sections {
 		$this->add_to_header($styles, 'main-styles');
 	}
 
+	/*get font family rules from font family handle*/
 	public function get_font_rules($font_handle)
 	{
 		$rules = '';
@@ -79,29 +80,26 @@ class Styles extends Sections {
 		return $rules;
 	}
 
+	/*add a single font family to the PHP font family array*/
 	public function add_font_family($family, $rules) {
 		$this->font_families[ $family] = $rules;
 	}
 
+	/*add multiple font families to the PHP font family array*/
 	public function add_font_families( $familes ) {
 		foreach($familes as $family => $rules) {
 			$this->add_font_family( $family, $rules );
 		}
 	}
 
-	public function set_font_familiy_styles()
-	{
-		$this->styles['body']['font-family'] = $this->get_font_rules( 'font-family-1' );
-		$this->styles['h1, h2, h3, h4, h5']['font-family'] = $this->get_font_rules( 'font-family-2' );
-	}
-
-
+	/*get json file, convert to PHP*/
 	public function get_json_data( $file )
 	{
 		$styles =  $this->get_json_file_content( $file );
 		return $styles;
 	}
 
+	/*pass array or comma separated string, return array*/
 	public function parse_class_args( $classes ) {
 
 		if( !is_array($classes) ) {
@@ -115,6 +113,7 @@ class Styles extends Sections {
 		
 	}
 
+	/*take php array of styles, return string for inline styles*/
 	public function get_class_styles_inline( $classes = '' ) 
 	{
 		if( $classes != '' ) {
@@ -132,6 +131,7 @@ class Styles extends Sections {
 		
 	}
 
+	/*take array of php styles, return string for use in stylesheet*/
 	public function get_styles_inline( $styles ) 
 	{
 		$inline = '';
