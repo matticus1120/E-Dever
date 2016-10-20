@@ -1,4 +1,10 @@
 {
+	".wowow": {
+		"font-family": "$body-font"
+	},
+	".customstuff": {
+		"font-family": "$heading-font"
+	},
 	".crazy-outer-classer": {
 		"color" : "red",
 		"border" : "none"

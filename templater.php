@@ -20,7 +20,8 @@ $builder->add_style_vars([
 	'border-cool' => 'solid 10px #DFDFDF',
 	'off-white' => '#E5F5F5'
 ]);
-
+$custom_fonts = $builder->get_json_data( __DIR__ . '/styles/custom-fonts.json' );
+$builder->add_font_families( $custom_fonts );
 
 /**
  * Set Styles
@@ -28,10 +29,7 @@ $builder->add_style_vars([
 $builder->add_to_styles( $builder->get_json_data( __DIR__ . '/styles/custom.css.json') );
 
 
-$custom_fonts = $builder->get_json_data( __DIR__ . '/styles/custom-fonts.json' );
-// $builder->lt($builder->font_families);
-$builder->add_font_families( $custom_fonts );
-// $builder->lt($builder->font_families);
+
 
 /**
  * Header
@@ -102,7 +100,7 @@ $builder
 		'content' => $builder->get_content([
 			'file_name' => 'secondary-section.php'
 		]),
-		'class' => 'one-class, two-class'
+		'class' => 'one-class, two-class, wowow'
 	])
 	->wrap('container', [
 		'width' => '400px'

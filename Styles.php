@@ -33,6 +33,22 @@ class Styles extends Sections {
 		return $style_arr;
 	}
 
+	public function replace_font_vars($style_arr)
+	{
+		$this->lt($style_arr);
+		// $this->lt( $this->font_families);
+		$array = $style_arr;
+		foreach($style_arr as $key => $arr) {
+			foreach($arr as $selector => $value) {
+				if( 'font-family' == $selector && array_key_exists( $value, $this->font_families) ) {
+					$style_arr[$key][$selector] = $this->get_font_rules(  $value);
+				}
+			}
+		}
+		$this->lt($style_arr);
+		return $style_arr;
+	}
+
 	public function add_style_vars($vars)
 	{
 		$array = [];
@@ -45,7 +61,9 @@ class Styles extends Sections {
 	public function add_to_styles($styles = [])
 	{
 		$this->replace_style_vars($styles);
-		$this->styles = array_merge($this->styles, $this->replace_style_vars($styles));
+		$this->replace_font_vars($styles);
+		$new_styles = $this->replace_font_vars($styles);
+		$this->styles = array_merge($this->styles, $this->replace_style_vars($new_styles));
 		$styles = $this->get_file( './styles/style-builder.php', $this->styles );
 		$this->add_to_header($styles, 'main-styles');
 	}
@@ -62,7 +80,7 @@ class Styles extends Sections {
 	}
 
 	public function add_font_family($family, $rules) {
-		$this->font_families[$family] = $rules;
+		$this->font_families[ $family] = $rules;
 	}
 
 	public function add_font_families( $familes ) {
