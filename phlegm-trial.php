@@ -16,13 +16,19 @@ $builder->add_style_vars([
 	'grey' => '#8a8a8a'
 ]);
 $builder->add_font_families($builder->get_json_data( __DIR__ . '/phlegm/phlegm-fonts.json' ) );
-$builder->add_to_styles( $builder->get_json_data( __DIR__ . '/phlegm/phlegm-styles.css.json') );
+$builder->add_to_styles( $builder->get_json_data( __DIR__ . '/phlegm/phlegm-styles.css.json'), ['max-width' => '400px'] );
 
 
 /**
  * Content
  */
 
+$builder
+	->spacer('40px')
+	->wrap('full_width_row', [
+		'class_wrapper' => 'grey-bg'
+	])
+->add_to_body_content();
 $builder
 	->add('image', [
 		'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/top-image.jpg'
@@ -33,19 +39,17 @@ $builder
 	->wrap('full_width_row', [
 		'class_wrapper' => 'grey-bg'
 	])
-	->add_to_body_content();
+->add_to_body_content();
 
 $text = $builder->tag([ 
 	'elem' => 'p', 
 	'content' => "For the better part of a month Phlegm's been painting an 8-storey masterpiece on the side of 1 St. Clair West. Now it's time to unveil the work.",
 	'class' => 'dark-p'
 ]);
-// $text .= $builder->spacer('50px');
 $text .= $builder->tag([ 
 	'elem' => 'p', 
 	'content' => "Join other influential members of the community, prominent Toronto artists, city builders, and the media for this invite only affair."
 ]);
-
 $text .= $builder->tag([
 	'elem' => 'p',
 	'content' => '6 to 8pm August 17<br />on the Roof of Scallywags<br />11 St. Clair West'
@@ -64,6 +68,7 @@ $builder
 		'class' => 'phlegm-btn',
 		'class_outer' => 'align-center, vertical-padding'
 	])
+	->spacer('40px')
 	->wrap('container', [
 		'class' => 'simple-container',
 	])
@@ -71,7 +76,6 @@ $builder
 		'class_wrapper' => 'black-bg'
 	])
 ->add_to_body_content();
-
 
 $builder
 	->spacer('50px')
