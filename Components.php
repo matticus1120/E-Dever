@@ -53,6 +53,7 @@ class Components extends Helpers {
 
 	public function image( $args )
 	{	
+		$args['url'] = ( isset($args['url']) ) ? $args['url'] : null;
 		return $this->get_file( $this->dir_settings['component_dir'] . '/image.php', $args );
 	}
 

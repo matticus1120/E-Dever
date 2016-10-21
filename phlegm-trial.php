@@ -52,34 +52,17 @@ $text .= $builder->tag([
 ]);
 
 $builder
-	// ->spacer('80px')
+	->spacer('80px')
 	->add('text_block', [
 		'content' => $text,
 		'class' => 'white-text, align-center'
 	])
-	// ->spacer('40px')
+	->spacer('40px')
 	->add('button', [
 		'content' => 'RSVP',
 		'url' => 'mailto:rsvp@kimgraham.ca?subject=Yonge%20%2B%20St.%20Clair%20Mural%20Unveiling%20RSVP',
 		'class' => 'phlegm-btn',
 		'class_outer' => 'align-center, vertical-padding'
-	])
-	->add('columns', [
-		'class_wrapper' => 'cool-ass-columns',
-		'columns' => [
-			[
-				'content' => 'whoa',
-				'class' => 'align-center'
-			],
-			[
-				'content' => 'weee',
-				'class' => 'align-center'
-			],
-			[
-				'content' => 'cray cray',
-				'class' => 'align-center'
-			],
-		]
 	])
 	->wrap('container', [
 		'class' => 'simple-container',
@@ -88,6 +71,38 @@ $builder
 		'class_wrapper' => 'black-bg'
 	])
 	->add_to_body_content();
+
+$builder
+	->spacer('280px')
+	->add('columns', [
+		'class_wrapper' => 'cool-ass-columns',
+		'columns' => [
+			[
+				'content' => 'whoa',
+				'class' => 'align-center'
+			],
+			[
+				'content' => $builder->get('image', [
+					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/start.jpg',
+					'url' => 'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=bebb4074781e1410VgnVCM10000071d60f89RCRD'
+				]),
+				'class' => 'align-center'
+			],
+			[
+				'content' => 'cray cray',
+				'class' => 'align-center'
+			],
+		]
+	])
+	->spacer('280px')
+	->wrap('container', [
+		'class' => 'simple-container',
+	])
+	->wrap('full_width_row', [
+		'class_wrapper' => 'white-bg'
+	])
+	->add_to_body_content();
+
 
 $builder->get_email();
 

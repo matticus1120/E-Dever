@@ -3,7 +3,9 @@
 	<tbody>
 		<tr>
 			<td valign="top" align="center" class="<?php echo implode(" ", $class_outer) ?>" style="<?php echo $class_outer_inline ?>">
+				<?php echo ( $url ) ? '<a href="' . $url . '" target="_blank">' : ''; ?>
 				<img src="<?php echo $src ?>" alt="" class="<?php echo implode(" ", $class) ?>" style="<?php echo $class_inline ?>">
+				<?php echo ( $url ) ? '</a>' : ''; ?>
 			</td>
 		</tr>
 	</tbody>
