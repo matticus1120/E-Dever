@@ -11,24 +11,32 @@ class Components extends Helpers {
 		return '<p>Oh ya im a thing</p>';
 	}
 
-	public function elem( $args )
+	public function add_elem( $args )
 	{
-		$html = '<' . $args['tag'] . '>' . $args['content'] . '</' . $args['tag'] .'/>';
+		$html = '<' . $args['elem'] . ' class="'. implode(" ", $args['class']) . '" style="' . $args['class_inline'] . '">' . $args['content'] . '</' . $args['elem'] .'/>';
 		return $html;
 	}
 
+	public function spacer($height = "20px")
+	{
+		return $this->add('text_block', [
+			'class' => 'spacer, cool-spacer',
+			'content' => ''
+		]);
+	}
 
 	public function text_block( $args )
 	{
-		$args = $this->parse_template_var( $args );
-		$array = $this->set_inline_class_args( $args );
-		return $this->get_file( $this->dir_settings['component_dir'] . '/text-block.php', $array );
+		return $this->get_file( $this->dir_settings['component_dir'] . '/text-block.php', $args );
+	}
+
+	public function row( $args )
+	{
+		return $this->get_file( $this->dir_settings['component_dir'] . '/row.php', $args );
 	}
 
 	public function button( $args )
 	{
-		// $args = $this->parse_template_var( $args );
-		// $array = $this->set_inline_class_args( $args );
 		return $this->get_file( $this->dir_settings['component_dir'] . '/button.php', $args );
 	}
 
@@ -46,6 +54,23 @@ class Components extends Helpers {
 	public function image( $args )
 	{	
 		return $this->get_file( $this->dir_settings['component_dir'] . '/image.php', $args );
+	}
+
+	public function columns( $args )
+	{
+		$inner_content = '';
+		$width = 600 / count($args['columns']);
+
+		foreach($args['columns'] as $key => $column ) {
+			$column['elem'] = 'td';
+			$inner_content .= $this->tag( $column );
+		}
+		
+		$args['content'] = $inner_content;
+
+		$outer_content = $this->get('row',  $args );
+
+		return $outer_content;
 	}
 
 	public function get_content( $args )

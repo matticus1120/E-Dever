@@ -60,12 +60,31 @@ class Helpers {
 		return $args;
 	}
 
-	public function add( $methodName = '', $args = [] )
+	public function tag( $args = [] )
 	{
 		$args = $this->parse_template_var( $args );
 		$args = $this->set_inline_class_args( $args );
+		return $this->add_elem( $args );
+	}
+
+
+	public function add( $methodName = '', $args = [] )
+	{
+		if( is_array($args) ) {
+			$args = $this->parse_template_var( $args );
+			$args = $this->set_inline_class_args( $args );
+		}
 		$this->added_content .= $this->$methodName( $args );
 		return $this;
+	}
+
+	public function get( $methodName = '', $args = [] )
+	{
+		if( is_array($args) ) {
+			$args = $this->parse_template_var( $args );
+			$args = $this->set_inline_class_args( $args );
+		}
+		return $this->$methodName( $args );
 	}
 
 	public function wrap( $methodName = '', $args = [] )

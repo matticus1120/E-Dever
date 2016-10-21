@@ -1,0 +1,27 @@
+{
+	".grey-bg": {
+		"background-color": "#dcdcdc"
+	},
+	".black-bg": {
+		"background-color": "$black"
+	},
+	".white-text": {
+		"color": "$white"
+	},
+	".phlegm-btn": {
+		"color": "$white",
+		"border": "solid 2px #fff"
+	},
+	".vertical-padding": {
+		"padding-top": "30px",
+		"padding-bottom": "30px"
+	},
+	".dark-p": {
+		"color": "$grey",
+		"font-weight": "bold",
+		"font-size": "20px"
+	},
+	".cool-spacer": {
+		"height": "50px"
+	}
+}

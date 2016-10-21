@@ -4,17 +4,7 @@ ini_set('display_errors', 'On');
 
 require_once('Builder.php');
 
-/*
-1. Builder
-2. Styles
-3. Sections
-4. Components
-5. Helpers
-*/
-
 $builder = new Builder();
-
-
 
 $builder->add_style_vars([
 	'border-cool' => 'solid 10px #DFDFDF',

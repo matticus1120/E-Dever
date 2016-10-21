@@ -25,6 +25,7 @@ class Styles extends Sections {
 	{
 		foreach($style_arr as $key => $arr) {
 			foreach($arr as $selector => $value) {
+				/*this condition needs to to a string search instead of key check*/
 				if(array_key_exists( $value , $this->style_vars)) {
 					$style_arr[$key][$selector] = str_replace( $value, $this->style_vars[$value], $style_arr[$key][$selector] );
 				}

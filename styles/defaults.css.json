@@ -32,6 +32,9 @@
 	".align-center" : {
 		"text-align" : "center"
 	},
+	".spacer": {
+		"height": "50px"
+	},
 	".button" : {
 		"font-size" : "25px",
 		"color" : "#69c9ba",
