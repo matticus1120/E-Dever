@@ -114,6 +114,23 @@ class Styles extends Sections {
 		
 	}
 
+	public function get_attributes( $args )
+	{
+		$args['height'] = (isset( $args['height'] )) ? str_replace( 'px', '', $args['height'] ): null;
+		$args['width'] = (isset( $args['width'] )) ? str_replace( 'px', '', $args['width'] ): null;
+		$args['align'] = (isset( $args['align'] )) ? $args['align'] : null;
+		$args['valign'] = (isset( $args['valign'] )) ? $args['valign'] : null;
+
+		$args['height'] = ( $args['height'] ) ? 'height="' . $args['height'] . '" ' : '';
+		$args['width'] = ( $args['width'] ) ? 'width="' . $args['width'] . '" ' : 'width="100%"';
+
+		$args['align'] = ( $args['align'] ) ? 'align="' . $args['align'] . '" ' : 'align="left"';
+		$args['valign'] = ( $args['valign'] ) ? 'valign="' . $args['valign'] . '" ' : 'align="top"';
+
+		return $args;
+	}
+
+
 	/*take php array of styles, return string for inline styles*/
 	public function get_class_styles_inline( $classes = '' ) 
 	{

@@ -32,8 +32,8 @@
 	".align-center" : {
 		"text-align" : "center"
 	},
-	".spacer": {
-		"height": "50px"
+	".align-right": {
+		"text-align" :"right"
 	},
 	".button" : {
 		"font-size" : "25px",

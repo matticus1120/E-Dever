@@ -13,7 +13,7 @@ class Components extends Helpers {
 
 	public function add_elem( $args )
 	{
-		$html = '<' . $args['elem'] . ' class="'. implode(" ", $args['class']) . '" style="' . $args['class_inline'] . '">' . $args['content'] . '</' . $args['elem'] .'/>';
+		$html = '<' . $args['elem'] . ' class="'. implode(" ", $args['class']) . '" style="' . $args['class_inline'] . '" ' . $args['width'] .  ' ' . $args['height'] .  '>' . $args['content'] . '</' . $args['elem'] .'/>';
 		return $html;
 	}
 
@@ -21,7 +21,8 @@ class Components extends Helpers {
 	{
 		return $this->add('text_block', [
 			'class' => 'spacer, cool-spacer',
-			'content' => ''
+			'content' => '',
+			'height' => $height
 		]);
 	}
 
@@ -68,6 +69,7 @@ class Components extends Helpers {
 		}
 		
 		$args['content'] = $inner_content;
+		$args['class_wrapper'][] = ' columns-' . count($args['columns']);
 
 		$outer_content = $this->get('row',  $args );
 

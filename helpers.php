@@ -64,6 +64,7 @@ class Helpers {
 	{
 		$args = $this->parse_template_var( $args );
 		$args = $this->set_inline_class_args( $args );
+		$args = $this->get_attributes( $args );
 		return $this->add_elem( $args );
 	}
 
@@ -73,6 +74,7 @@ class Helpers {
 		if( is_array($args) ) {
 			$args = $this->parse_template_var( $args );
 			$args = $this->set_inline_class_args( $args );
+			$args = $this->get_attributes( $args );
 		}
 		$this->added_content .= $this->$methodName( $args );
 		return $this;
@@ -83,6 +85,7 @@ class Helpers {
 		if( is_array($args) ) {
 			$args = $this->parse_template_var( $args );
 			$args = $this->set_inline_class_args( $args );
+			$args = $this->get_attributes( $args );
 		}
 		return $this->$methodName( $args );
 	}

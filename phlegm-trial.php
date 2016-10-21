@@ -12,7 +12,7 @@ $builder = new Builder();
 $builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">');
 $builder->add_style_vars([
 	'black' => '#000000',
-	'white' => '#f1f1f1',
+	'white' => '#FFF',
 	'grey' => '#8a8a8a'
 ]);
 $builder->add_font_families($builder->get_json_data( __DIR__ . '/phlegm/phlegm-fonts.json' ) );
@@ -70,38 +70,116 @@ $builder
 	->wrap('full_width_row', [
 		'class_wrapper' => 'black-bg'
 	])
-	->add_to_body_content();
+->add_to_body_content();
+
 
 $builder
-	->spacer('280px')
+	->spacer('50px')
+	->add('image', [
+		'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/steps-initiative-logo.jpg',
+		'url' => 'http://www.stepsinitiative.com/projects/stclair/'
+	])
+	->wrap('container', [
+		'class' => 'step-container',
+		'width' => '350px'
+	])
+	->spacer('50px')
+	->wrap('container', [
+		'class' => 'main-container',
+		'width' => '600px'
+	])
+	->wrap('full_width_row', [
+		'class' => 'white-bg'
+	])
+->add_to_body_content();
+
+$builder
 	->add('columns', [
 		'class_wrapper' => 'cool-ass-columns',
+		'height' => '120px',
 		'columns' => [
 			[
-				'content' => 'whoa',
-				'class' => 'align-center'
+				'content' => $builder->get('image', [
+					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/slate-logo.jpg',
+					'url' => 'http://www.slateam.com/investments/private-funds/slate-advisors/yonge-and-st-clair-revitalization/'
+				]),
+				'class' => 'align-left',
+				'width' => '50%',
 			],
 			[
 				'content' => $builder->get('image', [
 					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/start.jpg',
 					'url' => 'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=bebb4074781e1410VgnVCM10000071d60f89RCRD'
 				]),
-				'class' => 'align-center'
-			],
-			[
-				'content' => 'cray cray',
-				'class' => 'align-center'
+				'class' => 'align-right',
+				'width' => '50%'
 			],
 		]
 	])
-	->spacer('280px')
+	->spacer('80px')
 	->wrap('container', [
 		'class' => 'simple-container',
+		'width' => '240px'
 	])
 	->wrap('full_width_row', [
 		'class_wrapper' => 'white-bg'
 	])
-	->add_to_body_content();
+->add_to_body_content();
+
+
+$builder
+	->add('columns', [
+		'class_wrapper' => 'cool-ass-columns',
+		'height' => '120px',
+		'columns' => [
+			[
+				'content' => $builder->get('image', [
+					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/cbre-logo.jpg',
+					'url' => 'http://www.cbre.ca/EN/Pages/Home.aspx',
+					'align' => 'left'
+				]),
+				'class' => 'align-center',
+				'width' => '20%',
+			],
+			[
+				'content' => $builder->get('image', [
+					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/cibc.jpg',
+					'url' => 'http://www.cibccm.com/',
+					'align' => 'center'
+				]),
+				'class' => 'align-center',
+				'width' => '20%',
+			],
+			[
+				'content' => $builder->get('image', [
+					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/rexall.jpg',
+					'url' => 'http://www.rexall.ca/',
+					'align' => 'center'
+				]),
+				'class' => 'align-center',
+				'width' => '20%',
+			],
+			[
+				'content' => $builder->get('image', [
+					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/dulux.jpg',
+					'url' => 'https://www.dulux.ca/diy/home',
+					'align' => 'right'
+				]),
+				'class' => 'align-center',
+				'width' => '20%',
+			],
+		]
+	])
+	->spacer('80px')
+	->wrap('container', [
+		'class' => 'simple-container',
+		'width' => '360px'
+	])
+	->wrap('full_width_row', [
+		'class_wrapper' => 'white-bg'
+	])
+->add_to_body_content();
+
 
 
 $builder->get_email();

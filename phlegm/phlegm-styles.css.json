@@ -23,8 +23,5 @@
 		"color": "$grey",
 		"font-weight": "bold",
 		"font-size": "20px"
-	},
-	".cool-spacer": {
-		"height": "50px"
 	}
 }
