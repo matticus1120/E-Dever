@@ -7,25 +7,7 @@ use Builder\Styles;
 class Builder extends Styles {
 
 	public $settings = [
-		'styles' => [
-			'colors' => [
-				'primary' => 'red',
-				'secondary' => 'blue'
-			],
-			'fonts' => [
-				'primary' => [
-					"Oswald sans-serif",
-					"Arial, sans-serif"
-				],
-				'secondary' => [
-					"Kameron, serif",
-					"Georgia, serif"
-				]
-			]
-		],	
-		'meta' => [
-			'title' => 'Blackjet Eblast Template'
-		]
+		'title' => 'Blackjet Eblast Template'
 	];
 
 	public $email = null;
@@ -38,10 +20,11 @@ class Builder extends Styles {
 		if($settings) {
 			$this->settings = $settings;
 		}
+	}
 
-
-		// $this->add_styles_to_header();
-		
+	public function set_settings($settings = [])
+	{
+		$this->settings = $settings;
 	}
 
 	public function add_to_head( $content )
@@ -95,7 +78,6 @@ class Builder extends Styles {
 		$this->build_email();
 		echo $this->email;
 	}
-
 
 }
 

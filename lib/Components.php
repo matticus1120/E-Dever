@@ -90,11 +90,11 @@ class Components extends Helpers {
 		return $outer_content;
 	}
 
-	public function get_content( $args )
+/*	public function get_content( $args )
 	{
 		return $this->get_file( $this->dir_settings['content_dir'] . $args['file_name'], $args );
 	}
-
+*/
 }
 
 

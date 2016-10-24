@@ -2,13 +2,9 @@
 
 namespace Builder;
 
-class Helpers {
+include 'FileHelpers.php';
 
-	public $dir_settings = [
-		'component_dir' =>  __DIR__  .'/components/',
-		'section_dir' =>  __DIR__  .'/sections/',
-		'content_dir' => __DIR__ .'/content/'
-	];
+class Helpers extends FileHelpers {
 
 	public $added_content = '';
 	public $wrappers = [];
@@ -27,20 +23,6 @@ class Helpers {
 			console.log( <?php echo json_encode($data) ; ?>)
 		</script>
 	<?php }
-
-	public function get_file( $file, $args = [] )
-	{
-		ob_start( );
-			include $file;
-		$output = ob_get_clean();
-		return $output;
-	}
-
-	public function get_json_file_content( $file )
-	{
-		$json = file_get_contents( $file );
-		return json_decode( $json, true );
-	}
 
 	public function parse_template_var( $args )
 	{

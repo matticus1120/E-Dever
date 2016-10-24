@@ -2,9 +2,13 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-require_once('Builder.php');
+require_once('./lib/Builder.php');
 
 $builder = new Builder();
+
+$builder->set_settings([
+		'title' => 'Trial WIth Phlegm Email'
+]);
 
 /**
  * Set Variables and Fonts
@@ -15,6 +19,7 @@ $builder->add_style_vars([
 	'white' => '#FFF',
 	'grey' => '#8a8a8a'
 ]);
+
 $builder->add_font_families($builder->get_json_data( __DIR__ . '/phlegm/phlegm-fonts.json' ) );
 $builder->add_to_styles( $builder->get_json_data( __DIR__ . '/phlegm/phlegm-styles.css.json'), ['max-width' => '400px'] );
 
@@ -22,11 +27,10 @@ $builder->add_to_styles( $builder->get_json_data( __DIR__ . '/phlegm/phlegm-styl
 /**
  * Content
  */
-
 $builder
 	->spacer('40px')
 	->wrap('full_width_row', [
-		'class_wrapper' => 'grey-bg'
+		'class' => 'grey-bg'
 	])
 ->add_to_body_content();
 $builder
@@ -37,7 +41,7 @@ $builder
 		'class' => ['simple-container']
 	])
 	->wrap('full_width_row', [
-		'class_wrapper' => 'grey-bg'
+		'class' => 'grey-bg'
 	])
 ->add_to_body_content();
 
@@ -73,7 +77,7 @@ $builder
 		'class' => 'simple-container',
 	])
 	->wrap('full_width_row', [
-		'class_wrapper' => 'black-bg'
+		'class' => 'black-bg'
 	])
 ->add_to_body_content();
 

@@ -65,7 +65,7 @@ class Styles extends Sections {
 		$this->replace_font_vars($styles);
 		$new_styles = $this->replace_font_vars($styles);
 		$this->styles = array_merge($this->styles, $this->replace_style_vars($new_styles));
-		$styles = $this->get_file( './styles/style-builder.php', $this->styles );
+		$styles = $this->get_styles_file( 'style-builder.php', $this->styles );
 		$this->add_to_header($styles, 'main-styles');
 	}
 
@@ -91,13 +91,6 @@ class Styles extends Sections {
 		foreach($familes as $family => $rules) {
 			$this->add_font_family( $family, $rules );
 		}
-	}
-
-	/*get json file, convert to PHP*/
-	public function get_json_data( $file )
-	{
-		$styles =  $this->get_json_file_content( $file );
-		return $styles;
 	}
 
 	/*pass array or comma separated string, return array*/

@@ -61,7 +61,8 @@ class Sections  extends Components {
 
 	public function get_head_start()
 	{
-		return $this->get_file( './sections/head_start.php' );
+		$settings = $this->settings;
+		return $this->get_section( 'head_start.php', $settings );
 	}
 
 	public function get_head_content()
@@ -76,7 +77,7 @@ class Sections  extends Components {
 
 	public function get_head_end()
 	{
-		return $this->get_file( './sections/head_end.php' );
+		return $this->get_section( 'head_end.php' );
 	}
 
 
@@ -99,7 +100,7 @@ class Sections  extends Components {
 
 	public function get_body_start()
 	{
-		return $this->get_file('./sections/body_start.php' );
+		return $this->get_section('body_start.php' );
 	}
 
 	public function get_body_content()
@@ -114,7 +115,7 @@ class Sections  extends Components {
 
 	public function get_body_end()
 	{
-		return $this->get_file( './sections/body_end.php' );
+		return $this->get_section( 'body_end.php' );
 	}
 
 }
