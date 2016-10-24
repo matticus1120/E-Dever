@@ -2,8 +2,5 @@
 	".mobile-align-center": {
 		"text-align": "center !important",
 		"padding-bottom": "20px"
-	},
-	"img": {
-		"display": "inline !important"
 	}
 }

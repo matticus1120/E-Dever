@@ -2,7 +2,7 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-require_once('./lib/Builder.php');
+require_once(  './lib/Builder.php');
 
 $builder = new Builder();
 
@@ -38,6 +38,7 @@ $builder
 		'class' => 'grey-bg'
 	])
 ->add_to_body_content();
+
 $builder
 	->add('image', [
 		'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/top-image.jpg'
@@ -98,6 +99,10 @@ $builder
 		'class' => 'step-container',
 		'width' => '350px'
 	])
+	->wrap('container', [
+		'class' => 'step-container',
+		'width' => '600px'
+	])
 	->spacer('50px')
 	->wrap('container', [
 		'class' => 'main-container',
@@ -133,6 +138,10 @@ $builder
 	->wrap('container', [
 		'class' => 'simple-container',
 		'width' => '240px'
+	])
+	->wrap('container', [
+		'class' => 'step-container',
+		'width' => '600px'
 	])
 ->add_to_body_content();
 
@@ -184,6 +193,10 @@ $builder
 	->wrap('container', [
 		'class' => 'simple-container',
 		'width' => '360px'
+	])
+	->wrap('container', [
+		'class' => 'step-container',
+		'width' => '600px'
 	])
 ->add_to_body_content();
 
