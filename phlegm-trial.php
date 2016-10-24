@@ -22,6 +22,11 @@ $builder->add_style_vars([
 
 $builder->add_font_families($builder->get_json_data( __DIR__ . '/phlegm/phlegm-fonts.json' ) );
 $builder->add_to_styles( $builder->get_json_data( __DIR__ . '/phlegm/phlegm-styles.css.json'));
+$builder->add_to_styles( $builder->get_json_data( __DIR__ . '/phlegm/phlegm-responsive.css.json'), [
+	'breakpoints' => [
+		'max-width: 480px'
+	]
+]);
 
 
 /**
@@ -109,13 +114,15 @@ $builder
 				'content' => $builder->get('image', [
 					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/slate-logo.jpg',
 					'url' => 'http://www.slateam.com/investments/private-funds/slate-advisors/yonge-and-st-clair-revitalization/',
+					'class_outer' => 'mobile-align-center'
 				]),
 				'width' => '50%',
 			],
 			[
 				'content' => $builder->get('image', [
 					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/start.jpg',
-					'url' => 'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=bebb4074781e1410VgnVCM10000071d60f89RCRD'
+					'url' => 'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=bebb4074781e1410VgnVCM10000071d60f89RCRD',
+					'class_outer' => 'mobile-align-center'
 				]),
 				'class' => 'align-right',
 				'width' => '50%'
@@ -139,7 +146,8 @@ $builder
 				'content' => $builder->get('image', [
 					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/cbre-logo.jpg',
 					'url' => 'http://www.cbre.ca/EN/Pages/Home.aspx',
-					'align' => 'left'
+					'align' => 'left',
+					'class_outer' => 'mobile-align-center'
 				]),
 				'width' => '20%',
 			],
@@ -147,7 +155,8 @@ $builder
 				'content' => $builder->get('image', [
 					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/cibc.jpg',
 					'url' => 'http://www.cibccm.com/',
-					'align' => 'center'
+					'align' => 'center',
+					'class_outer' => 'mobile-align-center'
 				]),
 				'width' => '20%',
 			],
@@ -155,7 +164,8 @@ $builder
 				'content' => $builder->get('image', [
 					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/rexall.jpg',
 					'url' => 'http://www.rexall.ca/',
-					'align' => 'center'
+					'align' => 'center',
+					'class_outer' => 'mobile-align-center'
 				]),
 				'width' => '20%',
 			],
@@ -163,7 +173,8 @@ $builder
 				'content' => $builder->get('image', [
 					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/dulux.jpg',
 					'url' => 'https://www.dulux.ca/diy/home',
-					'align' => 'right'
+					'align' => 'right',
+					'class_outer' => 'mobile-align-center'
 				]),
 				'width' => '20%',
 			],

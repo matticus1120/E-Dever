@@ -74,7 +74,6 @@ class Styles extends Sections {
 
 		if( isset($args['breakpoints'] )) {
 			$responsive_styles = $this->get_styles_file( 'responsive-style-builder.php', $new_styles, $args );
-			$this->lt($responsive_styles);
 			$this->add_to_header($responsive_styles);
 		}
 		else {
