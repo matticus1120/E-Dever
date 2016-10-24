@@ -24,7 +24,7 @@
 		"font-weight": "bold",
 		"font-size": "20px"
 	},
-	".domine": {
-		"font-family": "body-font"
+	"p": {
+		"font-family": "font-family-1"
 	}
 }

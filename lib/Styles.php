@@ -175,7 +175,7 @@ class Styles extends Sections {
 		if( $classes != '' ) {
 			$inline_styles = '';
 			foreach($classes as $class) {
-				if(  ( isset( $this->styles[ '.' . $class ] ) ) ) {
+				if(  ( isset( $this->styles[ '.' . $class ] ) )  ) {
 					$inline_styles .= $this->get_styles_inline( $this->styles[ '.' . $class ]  );
 				}
 			}

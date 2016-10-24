@@ -57,15 +57,18 @@ $builder
 $text = $builder->tag([ 
 	'elem' => 'p', 
 	'content' => "For the better part of a month Phlegm's been painting an 8-storey masterpiece on the side of 1 St. Clair West. Now it's time to unveil the work.",
-	'class' => 'dark-p, domine'
+	'class' => 'dark-p, domine',
+	'font-family' => 'font-family-1'
 ]);
 $text .= $builder->tag([ 
 	'elem' => 'p', 
-	'content' => "Join other influential members of the community, prominent Toronto artists, city builders, and the media for this invite only affair."
+	'content' => "Join other influential members of the community, prominent Toronto artists, city builders, and the media for this invite only affair.",
+	'font-family' => 'font-family-2'
 ]);
 $text .= $builder->tag([
 	'elem' => 'p',
-	'content' => '6 to 8pm August 17<br />on the Roof of Scallywags<br />11 St. Clair West'
+	'content' => '6 to 8pm August 17<br />on the Roof of Scallywags<br />11 St. Clair West',
+	'font-family' => 'font-family-3'
 ]);
 
 $builder

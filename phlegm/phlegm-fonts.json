@@ -1,14 +1,14 @@
 {
-	"Montserrat": [
+	"font-family-1": [
 		"'Montserrat', Helvetica, sans-serif",
 		"Helvetica, sans-serif"
 	],
-	"heading-font": [
+	"font-family-2": [
 		"'Domine', serif",
 		"Palatino Linotype, sans-serif",
 		"Lucida Grande, serif"
 	],
-	"body-font": [
+	"font-family-3": [
 		"Lucida Sans, sans-serif",
 		"'Anton', sans-serif",
 		"Arial Black, sans-serif"
