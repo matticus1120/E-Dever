@@ -2,5 +2,15 @@
 	"Montserrat": [
 		"'Montserrat', Helvetica, sans-serif",
 		"Helvetica, sans-serif"
+	],
+	"heading-font": [
+		"'Domine', serif",
+		"Palatino Linotype, sans-serif",
+		"Lucida Grande, serif"
+	],
+	"body-font": [
+		"Lucida Sans, sans-serif",
+		"'Anton', sans-serif",
+		"Arial Black, sans-serif"
 	]
 }

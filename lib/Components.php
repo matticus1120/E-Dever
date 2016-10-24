@@ -37,7 +37,6 @@ class Components extends Helpers {
 
 	public function text_block( $args )
 	{
-		
 		return $this->get_file( $this->dir_settings['component_dir'] . '/text-block.php', $args );
 	}
 

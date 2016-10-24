@@ -45,10 +45,11 @@ class Styles extends Sections {
 	public function replace_font_vars($style_arr)
 	{
 		$array = $style_arr;
+		// $this->lt($this->font_families);
 		foreach($style_arr as $key => $arr) {
 			foreach($arr as $selector => $value) {
 				if( 'font-family' == $selector && array_key_exists( $value, $this->font_families) ) {
-					$style_arr[$key][$selector] = $this->get_font_rules(  $value);
+					$style_arr[$key][$selector] = $this->get_font_rules( $value );
 				}
 			}
 		}
@@ -103,14 +104,29 @@ class Styles extends Sections {
 
 	/*add a single font family to the PHP font family array*/
 	public function add_font_family($family, $rules) {
-		$this->font_families[ $family] = $rules;
+		
+		$this->font_families[ $family ] = $rules;
+
 	}
 
 	/*add multiple font families to the PHP font family array*/
 	public function add_font_families( $familes ) {
+		
+		$this->add_global_font_rules($familes);
+		
 		foreach($familes as $family => $rules) {
 			$this->add_font_family( $family, $rules );
 		}
+
+	}
+
+	public function add_global_font_rules( $familes )
+	{
+		$global_font_rules = [];
+		foreach($familes as $family => $rules) {
+			$global_font_rules[ '[style*="' . $family . '"]' ] = $rules;
+		}
+		$this->add_to_styles($global_font_rules);
 	}
 
 	/*pass array or comma separated string, return array*/
@@ -127,10 +143,19 @@ class Styles extends Sections {
 		
 	}
 
+	public function get_image_dimensions( $args, $dimension = '' )
+	{
+		if( isset($args['src']) ) {
+			list($width, $height) = getimagesize( $args['src'] );
+			return ( 'height' == $dimension )  ? $height : $width;
+		}
+		return null;
+	}
+
 	public function get_attributes( $args )
 	{
-		$args['height'] = (isset( $args['height'] )) ? str_replace( 'px', '', $args['height'] ): null;
-		$args['width'] = (isset( $args['width'] )) ? str_replace( 'px', '', $args['width'] ): null;
+		$args['height'] = (isset( $args['height'] )) ? str_replace( 'px', '', $args['height'] ):  $this->get_image_dimensions($args, 'height');
+		$args['width'] = (isset( $args['width'] )) ? str_replace( 'px', '', $args['width'] ): $this->get_image_dimensions($args, 'width');
 		$args['align'] = (isset( $args['align'] )) ? $args['align'] : null;
 		$args['valign'] = (isset( $args['valign'] )) ? $args['valign'] : null;
 

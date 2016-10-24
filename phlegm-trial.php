@@ -14,6 +14,9 @@ $builder->set_settings([
  * Set Variables and Fonts
  */
 $builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">');
+$builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto" rel="stylesheet">');
+$builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Anton|Domine|Josefin+Slab" rel="stylesheet">');
+
 $builder->add_style_vars([
 	'black' => '#000000',
 	'white' => '#FFF',
@@ -54,7 +57,7 @@ $builder
 $text = $builder->tag([ 
 	'elem' => 'p', 
 	'content' => "For the better part of a month Phlegm's been painting an 8-storey masterpiece on the side of 1 St. Clair West. Now it's time to unveil the work.",
-	'class' => 'dark-p'
+	'class' => 'dark-p, domine'
 ]);
 $text .= $builder->tag([ 
 	'elem' => 'p', 
@@ -92,7 +95,6 @@ $builder
 	->add('image', [
 		'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/steps-initiative-logo.jpg',
 		'url' => 'http://www.stepsinitiative.com/projects/stclair/',
-		'width' => '200px',
 		'align' => 'center'
 	])
 	->wrap('container', [
