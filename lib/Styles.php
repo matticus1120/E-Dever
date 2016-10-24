@@ -115,7 +115,7 @@ class Styles extends Sections {
 		$args['valign'] = (isset( $args['valign'] )) ? $args['valign'] : null;
 
 		$args['height'] = ( $args['height'] ) ? 'height="' . $args['height'] . '" ' : '';
-		$args['width'] = ( $args['width'] ) ? 'width="' . $args['width'] . '" ' : 'width="100%"';
+		$args['width'] = ( $args['width'] ) ? 'width="' . $args['width'] . '" ' : "";
 
 		$args['align'] = ( $args['align'] ) ? 'align="' . $args['align'] . '" ' : 'align="left"';
 		$args['valign'] = ( $args['valign'] ) ? 'valign="' . $args['valign'] . '" ' : 'align="top"';

@@ -12,7 +12,6 @@ class FileHelpers {
 	
 	public function get_file( $file, $args = [] )
 	{
-		$this->lt($file);
 		ob_start( );
 			include $file;
 		$output = ob_get_clean();

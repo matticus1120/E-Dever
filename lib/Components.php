@@ -68,6 +68,8 @@ class Components extends Helpers {
 		$this->image_count ++;
 		$args['class'][] = 'image-count-' . $this->image_count;
 
+		$this->lt($args);
+
 		$args['url'] = ( isset($args['url']) ) ? $args['url'] : null;
 		return $this->get_file( $this->dir_settings['component_dir'] . '/image.php', $args );
 	}
@@ -90,11 +92,6 @@ class Components extends Helpers {
 		return $outer_content;
 	}
 
-/*	public function get_content( $args )
-	{
-		return $this->get_file( $this->dir_settings['content_dir'] . $args['file_name'], $args );
-	}
-*/
 }
 
 

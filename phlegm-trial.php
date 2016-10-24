@@ -85,7 +85,9 @@ $builder
 	->spacer('50px')
 	->add('image', [
 		'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/steps-initiative-logo.jpg',
-		'url' => 'http://www.stepsinitiative.com/projects/stclair/'
+		'url' => 'http://www.stepsinitiative.com/projects/stclair/',
+		'width' => '200px',
+		'align' => 'center'
 	])
 	->wrap('container', [
 		'class' => 'step-container',
@@ -95,9 +97,6 @@ $builder
 	->wrap('container', [
 		'class' => 'main-container',
 		'width' => '600px'
-	])
-	->wrap('full_width_row', [
-		'class' => 'white-bg'
 	])
 ->add_to_body_content();
 
@@ -109,9 +108,8 @@ $builder
 			[
 				'content' => $builder->get('image', [
 					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/slate-logo.jpg',
-					'url' => 'http://www.slateam.com/investments/private-funds/slate-advisors/yonge-and-st-clair-revitalization/'
+					'url' => 'http://www.slateam.com/investments/private-funds/slate-advisors/yonge-and-st-clair-revitalization/',
 				]),
-				'class' => 'align-left',
 				'width' => '50%',
 			],
 			[
@@ -129,9 +127,6 @@ $builder
 		'class' => 'simple-container',
 		'width' => '240px'
 	])
-	->wrap('full_width_row', [
-		'class_wrapper' => 'white-bg'
-	])
 ->add_to_body_content();
 
 
@@ -146,7 +141,6 @@ $builder
 					'url' => 'http://www.cbre.ca/EN/Pages/Home.aspx',
 					'align' => 'left'
 				]),
-				'class' => 'align-center',
 				'width' => '20%',
 			],
 			[
@@ -155,7 +149,6 @@ $builder
 					'url' => 'http://www.cibccm.com/',
 					'align' => 'center'
 				]),
-				'class' => 'align-center',
 				'width' => '20%',
 			],
 			[
@@ -164,7 +157,6 @@ $builder
 					'url' => 'http://www.rexall.ca/',
 					'align' => 'center'
 				]),
-				'class' => 'align-center',
 				'width' => '20%',
 			],
 			[
@@ -173,7 +165,6 @@ $builder
 					'url' => 'https://www.dulux.ca/diy/home',
 					'align' => 'right'
 				]),
-				'class' => 'align-center',
 				'width' => '20%',
 			],
 		]
@@ -182,9 +173,6 @@ $builder
 	->wrap('container', [
 		'class' => 'simple-container',
 		'width' => '360px'
-	])
-	->wrap('full_width_row', [
-		'class_wrapper' => 'white-bg'
 	])
 ->add_to_body_content();
 
