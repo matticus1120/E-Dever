@@ -1,4 +1,4 @@
-<?php extract($args) ?>
+<?php extract($variables) ?>
 <!--[if mso]>
 	<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 		<tr>

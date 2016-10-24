@@ -1,0 +1,11 @@
+{
+	".container": {
+		"width": "100% !important",
+		"padding-left": "15px !important",
+		"padding-right": "15px !important"
+	},
+	".column": {
+		"display": "block",
+		"width" : "100%"
+	}
+}

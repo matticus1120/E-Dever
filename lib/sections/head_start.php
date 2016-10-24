@@ -1,4 +1,4 @@
-<?php extract($args) ?>
+<?php extract($variables) ?>
 <!DOCTYPE html>
 <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
 <head>

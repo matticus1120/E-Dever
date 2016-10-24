@@ -10,7 +10,7 @@ class FileHelpers {
 		'styles_dir' => __DIR__ .'/styles/'
 	];
 	
-	public function get_file( $file, $args = [] )
+	public function get_file( $file, $variables = [], $args = [] )
 	{
 		ob_start( );
 			include $file;
@@ -18,19 +18,19 @@ class FileHelpers {
 		return $output;
 	}
 
-	public function get_section( $file_name, $args = [] )
+	public function get_section( $file_name, $variables = [] )
 	{
-		return $this->get_file(  $this->dir_settings['section_dir'] . $file_name, $args );
+		return $this->get_file(  $this->dir_settings['section_dir'] . $file_name, $variables );
 	}
 
-	public function get_component( $file_name, $args )
+	public function get_component( $file_name, $variables )
 	{
-		return $this->get_file(  $this->dir_settings['component_dir'] . $file_name, $args );
+		return $this->get_file(  $this->dir_settings['component_dir'] . $file_name, $variables );
 	}
 
-	public function get_styles_file( $file_name, $args )
+	public function get_styles_file( $file_name, $variables, $args = [] )
 	{
-		return $this->get_file(  $this->dir_settings['styles_dir'] . $file_name, $args );
+		return $this->get_file(  $this->dir_settings['styles_dir'] . $file_name, $variables, $args );
 	}
 
 	public function get_json_file_content( $file )

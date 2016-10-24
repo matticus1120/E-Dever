@@ -1,4 +1,4 @@
-<?php extract($args) ?>
+<?php extract($variables) ?>
 <table border="0" cellpadding="0" cellspacing="0" class="row-wrap <?php  echo implode(" ", $class_wrapper) ?>">
 	<tbody>
 		<tr>

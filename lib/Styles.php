@@ -18,6 +18,13 @@ class Styles extends Sections {
 
 		$defaults = $this->get_json_data( __DIR__ . '/styles/defaults.css.json' );
 		$this->add_to_styles($defaults);
+
+		$responsive_styles = $this->get_json_data( __DIR__ . '/styles/responsive.css.json');
+		$this->add_to_styles($responsive_styles, [
+			'breakpoints' => [
+					'max-width: 480px'
+			]
+		] );
 	}
 
 	/*replace variables in PHP CSS*/
@@ -59,14 +66,28 @@ class Styles extends Sections {
 	}
 
 	/*add a block of PHP CSS*/
-	public function add_to_styles($styles = [])
+	public function add_to_styles($styles = [], $args = [])
 	{
 		$this->replace_style_vars($styles);
 		$this->replace_font_vars($styles);
 		$new_styles = $this->replace_font_vars($styles);
-		$this->styles = array_merge($this->styles, $this->replace_style_vars($new_styles));
-		$styles = $this->get_styles_file( 'style-builder.php', $this->styles );
-		$this->add_to_header($styles, 'main-styles');
+
+		if( isset($args['breakpoints'] )) {
+			$responsive_styles = $this->get_styles_file( 'responsive-style-builder.php', $new_styles, $args );
+			$this->lt($responsive_styles);
+			$this->add_to_header($responsive_styles);
+		}
+		else {
+			$this->styles = array_merge($this->styles, $this->replace_style_vars($new_styles));
+			$styles = $this->get_styles_file( 'style-builder.php', $this->styles );
+			$this->add_to_header($styles, 'main-styles');
+		}
+	}
+
+	public function parse_responsive_styles( $styles, $media_query )
+	{
+		$this->lt($styles);
+		$this->lt($media_query);
 	}
 
 	/*get font family rules from font family handle*/

@@ -68,8 +68,6 @@ class Components extends Helpers {
 		$this->image_count ++;
 		$args['class'][] = 'image-count-' . $this->image_count;
 
-		$this->lt($args);
-
 		$args['url'] = ( isset($args['url']) ) ? $args['url'] : null;
 		return $this->get_file( $this->dir_settings['component_dir'] . '/image.php', $args );
 	}
@@ -81,6 +79,7 @@ class Components extends Helpers {
 
 		foreach($args['columns'] as $key => $column ) {
 			$column['elem'] = 'td';
+			$column['class'] = 'column';
 			$inner_content .= $this->tag( $column );
 		}
 		

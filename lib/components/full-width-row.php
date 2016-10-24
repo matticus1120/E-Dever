@@ -1,4 +1,4 @@
-<?php extract($args) ?>
+<?php extract($variables) ?>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="<?php echo $class_inline; ?>" class="full-width-row <?php echo implode(" ", $class); ?>">
 	<tbody>
 		<tr>

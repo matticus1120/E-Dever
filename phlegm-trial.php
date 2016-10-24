@@ -21,7 +21,7 @@ $builder->add_style_vars([
 ]);
 
 $builder->add_font_families($builder->get_json_data( __DIR__ . '/phlegm/phlegm-fonts.json' ) );
-$builder->add_to_styles( $builder->get_json_data( __DIR__ . '/phlegm/phlegm-styles.css.json'), ['max-width' => '400px'] );
+$builder->add_to_styles( $builder->get_json_data( __DIR__ . '/phlegm/phlegm-styles.css.json'));
 
 
 /**
