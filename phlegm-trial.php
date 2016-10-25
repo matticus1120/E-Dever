@@ -15,9 +15,12 @@ $builder->get_default_image_dimensions = false;
 /**
  * Set Variables and Fonts
  */
-$builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">');
-$builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto" rel="stylesheet">');
-$builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Anton|Domine|Josefin+Slab" rel="stylesheet">');
+// $builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">');
+// $builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto" rel="stylesheet">');
+// $builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Anton|Domine|Josefin+Slab" rel="stylesheet">');
+
+$builder->add_webfont( ["'Domine', serif"], 'https://fonts.googleapis.com/css?family=Amatic+SC|Anton|Domine|Josefin+Slab' );
+$builder->add_webfont( ["'Montserrat', sans-serif"], 'https://fonts.googleapis.com/css?family=Montserrat:400,700' );
 
 $builder->add_style_vars([
 	'black' => '#000000',
@@ -67,7 +70,7 @@ $text .= $builder->tag([
 	'font-family' => 'font-family-2'
 ]);
 $text .= $builder->tag([
-	'elem' => 'h2',
+	'elem' => 'p',
 	'content' => '6 to 8pm August 17<br />on the Roof of Scallywags<br />11 St. Clair West',
 	'font-family' => 'font-family-2'
 ]);

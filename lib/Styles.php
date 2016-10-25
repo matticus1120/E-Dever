@@ -9,6 +9,7 @@ class Styles extends Sections {
 	public $styles = [];
 
 	public $font_families = [];
+	public $webfonts = [];
 	public $style_vars = [];
 
 	public $get_default_image_dimensions = true;
@@ -27,6 +28,11 @@ class Styles extends Sections {
 					'max-width: 480px'
 			]
 		] );
+	}
+
+	public function add_webfont( $handles, $url) {
+		$this->webfonts = array_merge( $handles, $this->webfonts );
+		$this->add_to_header( '<link href="'.$url.'" rel="stylesheet" type="text/css">' );
 	}
 
 	/*replace variables in PHP CSS*/
@@ -86,22 +92,29 @@ class Styles extends Sections {
 		}
 	}
 
-	public function parse_responsive_styles( $styles, $media_query )
-	{
-		$this->lt($styles);
-		$this->lt($media_query);
-	}
-
 	/*get font family rules from font family handle*/
 	public function get_font_rules($font_handle)
 	{
 		$rules = '';
 		$family = $this->font_families[$font_handle];
+		if( $this->is_webfont_in_families($family) ) {
+			$family = array_reverse($family);
+		}
 		foreach($family as $key => $rule) {
 			$rules .= $rule;
 			$rules .= ( $key < count($family) - 1 ) ? ', ' : '';
 		}
 		return $rules;
+	}
+
+	public function is_webfont_in_families($family) {
+		$webfont_handle = false;
+		foreach($family as $rule) {
+			if( in_array($rule, $this->webfonts) ) {
+				$webfont_handle = $rule;
+			}
+		}
+		return $webfont_handle;
 	}
 
 	/*add a single font family to the PHP font family array*/
@@ -113,8 +126,9 @@ class Styles extends Sections {
 
 	/*add multiple font families to the PHP font family array*/
 	public function add_font_families( $familes ) {
-		
-		$this->add_global_font_rules($familes);
+		if( count($this->webfonts) > 0 ) {
+			$this->add_global_font_rules($familes);
+		}
 		
 		foreach($familes as $family => $rules) {
 			$this->add_font_family( $family, $rules );
@@ -126,7 +140,10 @@ class Styles extends Sections {
 	{
 		$global_font_rules = [];
 		foreach($familes as $family => $rules) {
-			$global_font_rules[ '[style*="' . $family . '"]' ] = $rules;
+			$webfont_handle = $this->is_webfont_in_families($rules);
+			$global_font_rules[ '[style*="' . $webfont_handle . '"]' ] = [
+				"font-family" => implode(", ", $rules) . ' !important'
+			];
 		}
 		$this->add_to_styles($global_font_rules);
 	}

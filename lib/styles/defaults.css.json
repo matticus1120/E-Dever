@@ -23,7 +23,8 @@
 	},
 	"body" : {
 		"font-family" : "font-family-1",
-		"color" : "#464646"
+		"color" : "#464646",
+		"background-color": "#FFFFFF"
 	},
 	"p": {
 		"font-family": "font-family-1"
@@ -48,7 +49,7 @@
 	},
 	".button-outer": {
 		"color" : "#FFFFFF" ,
-		"font-family" : "Helvetica, Arial, sans-serif" ,
+		"font-family" : "font-family-1" ,
 		"font-size" : "16px" ,
 		"font-weight" : "bold" ,
 		"letter-spacing" : "-.5px" 

@@ -1,16 +1,11 @@
 {
 	"font-family-1": [
-		"'Montserrat', Helvetica, sans-serif",
+		"'Montserrat', sans-serif",
 		"Helvetica, sans-serif"
 	],
 	"font-family-2": [
 		"'Domine', serif",
 		"Palatino Linotype, sans-serif",
 		"Lucida Grande, serif"
-	],
-	"font-family-3": [
-		"Lucida Sans, sans-serif",
-		"'Anton', sans-serif",
-		"Arial Black, sans-serif"
 	]
 }

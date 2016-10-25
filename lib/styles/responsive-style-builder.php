@@ -1,13 +1,13 @@
 <style>
 <?php
 foreach ($variables as $key => $rules) :
-	echo '@media( ' . $args['breakpoints'][0] . ' ) {';
-		echo $key .' {';
+	echo '@media ( ' . $args['breakpoints'][0] . ' ) {' .  "\n ";
+		echo $key .' {' . "\n ";
 			foreach($rules as $rule => $value) :
-				echo $rule .': ' . $value . ';';
+				echo $rule .': ' . $value . ';' .  "\n ";
 			endforeach;
-		echo '}';
-	echo '}';
+		echo '}' .  "\n ";
+	echo '}' .  "\n ";
 endforeach;
 ?>
 </style>
