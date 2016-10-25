@@ -15,11 +15,37 @@
 	},
 	"img" : {
 		"display" : "block",
-		"max-width" : "100%"
+		"max-width" : "100%",
+		"-ms-interpolation-mode" : "bicubic"
+	},
+	"img, a img": {
+		"border": "0",
+		"outline": "none",
+		"text-decoration": "none"
+	},
+	"table, td": {
+		"border-collapse": "collapse",
+		"mso-table-lspace" : "0pt",
+		"mso-table-rspace" : "0pt"
+	},
+	".ReadMsgBody": {
+		"width": "100%"
+	},
+	".ExternalClass": {
+		"width": "100%"
+	},
+	".ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div ": {
+		"line-height": "100%"
+	},
+	"body, table, td, p, a, li, blockquote": {
+		"-ms-text-size-adjust" : "100%",
+		"-webkit-text-size-adjust" : "100%"
 	},
 	"html, body" : {
 		"padding" : "0",
-		"margin" : "0"
+		"margin" : "0",
+		"height": "100% !important",
+		"width": "100% !important"
 	},
 	"body" : {
 		"font-family" : "font-family-1",
