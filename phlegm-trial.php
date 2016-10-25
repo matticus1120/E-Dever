@@ -83,7 +83,7 @@ $builder
 		'content' => 'RSVP',
 		'url' => 'mailto:rsvp@kimgraham.ca?subject=Yonge%20%2B%20St.%20Clair%20Mural%20Unveiling%20RSVP',
 		'class' => 'phlegm-btn',
-		'class_outer' => 'align-center, vertical-padding'
+		'align' => 'center'
 	])
 	->spacer('40px')
 	->wrap('container', [

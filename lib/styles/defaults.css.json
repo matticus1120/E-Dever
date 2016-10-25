@@ -41,19 +41,26 @@
 	".align-right": {
 		"text-align" :"right"
 	},
+	".button-wrapper" : {
+		"background-color": "#505050",
+		"border": "solid 1px #353535",
+		"border-radius": "5px"
+	},
+	".button-outer": {
+		"color" : "#FFFFFF" ,
+		"font-family" : "Helvetica, Arial, sans-serif" ,
+		"font-size" : "16px" ,
+		"font-weight" : "bold" ,
+		"letter-spacing" : "-.5px" 
+	},
 	".button" : {
-		"font-size" : "25px",
-		"color" : "#69c9ba",
-		"text-decoration" : "none",
-		"text-transform" : "uppercase",
-		"-webkit-border-radius" : "0",
-		"-moz-border-radius" : "0",
-		"border-radius" : "0",
-		"padding-top" : "2px",
-		"padding-right" : "23px",
-		"padding-bottom" : "3px",
-		"padding-left" : "23px",
-		"border" : "1px solid #69c9ba",
-		"font-weight" : "300"
+		"color":"#FFFFFF",
+		"text-decoration": "none",
+		"line-height" : "150%" ,
+		"padding-top" : "15px" ,
+		"padding-right" : "30px" ,
+		"padding-bottom" : "15px" ,
+		"padding-left" : "30px",
+		"display": "block"
 	}
 }

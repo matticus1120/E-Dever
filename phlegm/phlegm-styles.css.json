@@ -15,10 +15,6 @@
 	".white-text": {
 		"color": "$white"
 	},
-	".phlegm-btn": {
-		"color": "$white",
-		"border": "solid 2px #fff"
-	},
 	".vertical-padding": {
 		"padding-top": "30px",
 		"padding-bottom": "30px"

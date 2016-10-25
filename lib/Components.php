@@ -59,7 +59,10 @@ class Components extends Helpers {
 
 	public function button( $args )
 	{
-		$args['class'] = 'button, ' . $args['class'];
+		$args['class_wrapper'] = ( isset( $args['class_outer']) ) ? 'button-wrapper, ' . $args['class_outer'] : 'button-wrapper';
+		$args['class_outer'] = ( isset($args['class_outer']) ) ? 'button-outer, ' . $args['class_outer'] : 'button-outer';
+		$args['class'] = ( isset(  $args['class'] ) ) ? 'button, ' . $args['class'] : 'button';
+
 		$args = $this->set_arg_class_attributes($args);
 		return $this->get_file( $this->dir_settings['component_dir'] . '/button.php', $args );
 	}
