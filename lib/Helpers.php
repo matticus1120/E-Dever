@@ -44,13 +44,10 @@ class Helpers extends FileHelpers {
 
 	public function tag( $args = [] )
 	{
-		$this->lt($args);
 		$args = $this->parse_template_var( $args );
-		$this->lt($args);
 		$args = $this->set_inline_class_args( $args );
+		$args['class_inline'] .= $this->get_elem_styles_inline($args['elem']);
 		$args = $this->get_attributes( $args );
-		$this->lt($args);
-		$this->lt('--------------------------------');
 		return $this->add_elem( $args );
 	}
 

@@ -10,6 +10,8 @@ $builder->set_settings([
 		'title' => 'Trial WIth Phlegm Email'
 ]);
 
+$builder->get_default_image_dimensions = false;
+
 /**
  * Set Variables and Fonts
  */
@@ -66,9 +68,9 @@ $text .= $builder->tag([
 	'font-family' => 'font-family-2'
 ]);
 $text .= $builder->tag([
-	'elem' => 'p',
+	'elem' => 'h2',
 	'content' => '6 to 8pm August 17<br />on the Roof of Scallywags<br />11 St. Clair West',
-	'font-family' => 'font-family-3'
+	'font-family' => 'font-family-2'
 ]);
 
 $builder

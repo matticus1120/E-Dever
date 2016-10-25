@@ -11,6 +11,8 @@ class Styles extends Sections {
 	public $font_families = [];
 	public $style_vars = [];
 
+	public $get_default_image_dimensions = true;
+
 	public function build_styles()
 	{
 		$default_fonts = $this->get_json_data( __DIR__ . '/styles/defaults-fonts.css.json' );
@@ -154,8 +156,13 @@ class Styles extends Sections {
 
 	public function get_attributes( $args )
 	{
-		$args['height'] = (isset( $args['height'] )) ? str_replace( 'px', '', $args['height'] ):  $this->get_image_dimensions($args, 'height');
-		$args['width'] = (isset( $args['width'] )) ? str_replace( 'px', '', $args['width'] ): $this->get_image_dimensions($args, 'width');
+		
+		$default_height = ( $this->get_default_image_dimensions ) ? $this->get_image_dimensions($args, 'height') : null;
+		$default_width = ( $this->get_default_image_dimensions ) ? $this->get_image_dimensions($args, 'width') : null;
+
+		$args['height'] = (isset( $args['height'] )) ? str_replace( 'px', '', $args['height'] ) :  $default_height;
+		$args['width'] = (isset( $args['width'] )) ? str_replace( 'px', '', $args['width'] ) : $default_width;
+		
 		$args['align'] = (isset( $args['align'] )) ? $args['align'] : null;
 		$args['valign'] = (isset( $args['valign'] )) ? $args['valign'] : null;
 
@@ -169,7 +176,7 @@ class Styles extends Sections {
 	}
 
 
-	/*take php array of styles, return string for inline styles*/
+	/*take php array of classes, return string for inline styles*/
 	public function get_class_styles_inline( $classes = '' ) 
 	{
 		if( $classes != '' ) {
@@ -178,6 +185,22 @@ class Styles extends Sections {
 				if(  ( isset( $this->styles[ '.' . $class ] ) )  ) {
 					$inline_styles .= $this->get_styles_inline( $this->styles[ '.' . $class ]  );
 				}
+			}
+			return $inline_styles;
+		}	
+		else {
+			return [];
+		}
+		
+	}
+
+	/* take element, get inline styles from stylesheets */
+	public function get_elem_styles_inline( $elem = '' ) 
+	{
+		if( $elem != '' ) {
+			$inline_styles = '';
+			if(  ( isset( $this->styles[ $elem ] ) )  ) {
+				$inline_styles .= $this->get_styles_inline( $this->styles[ $elem ] );
 			}
 			return $inline_styles;
 		}	
