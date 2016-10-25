@@ -26,6 +26,16 @@ class Components extends Helpers {
 		return $html;
 	}
 
+	public function tag( $args = [] )
+	{
+		$args = $this->set_default_class_args( $args );
+		$args = $this->set_inline_class_args( $args );
+		$args['class_inline'] .= $this->get_elem_styles_inline($args['elem']);
+		$args = $this->get_attributes( $args );
+		return $this->add_elem( $args );
+	}
+
+
 	public function spacer($height = "20px")
 	{
 		return $this->add('text_block', [
@@ -37,33 +47,40 @@ class Components extends Helpers {
 
 	public function text_block( $args )
 	{
+		$args = $this->set_arg_class_attributes($args);
 		return $this->get_file( $this->dir_settings['component_dir'] . '/text-block.php', $args );
 	}
 
 	public function row( $args )
 	{
+		$args = $this->set_arg_class_attributes($args);
 		return $this->get_file( $this->dir_settings['component_dir'] . '/row.php', $args );
 	}
 
 	public function button( $args )
 	{
+		$args['class'] .= ', button';
+		$args = $this->set_arg_class_attributes($args);
 		return $this->get_file( $this->dir_settings['component_dir'] . '/button.php', $args );
 	}
 
 	public function full_width_row( $args )
 	{
+		$args = $this->set_arg_class_attributes($args);
 		return $this->get_file( $this->dir_settings['component_dir'] . '/full-width-row.php', $args );
 	}
 
 	public function container( $args )
 	{	
 
+		$args = $this->set_arg_class_attributes($args);
 		$args['width'] = ( array_key_exists('width', $args) ) ? $args['width'] : '600px';
 		return $this->get_file( $this->dir_settings['component_dir'] . '/container.php', $args );
 	}
 
 	public function image( $args )
 	{	
+		$args = $this->set_arg_class_attributes($args);
 		$this->image_count ++;
 		$args['class'][] = 'image-count-' . $this->image_count;
 
@@ -73,6 +90,7 @@ class Components extends Helpers {
 
 	public function columns( $args )
 	{
+		$args = $this->set_arg_class_attributes($args);
 		$inner_content = '';
 		$width = 600 / count($args['columns']);
 

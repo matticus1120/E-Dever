@@ -20,6 +20,7 @@ class Builder extends Styles {
 		if($settings) {
 			$this->settings = $settings;
 		}
+		$this->build_styles();
 	}
 
 	public function set_settings($settings = [])
@@ -66,7 +67,7 @@ class Builder extends Styles {
 
 	public function build_email()
 	{
-		$this->build_styles();
+		// $this->build_styles();
 		$this->build_header();
 		$this->build_body();
 

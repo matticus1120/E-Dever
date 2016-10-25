@@ -24,7 +24,7 @@ class Helpers extends FileHelpers {
 		</script>
 	<?php }
 
-	public function parse_template_var( $args )
+	public function set_default_class_args( $args )
 	{
 		$args['class'] = ( array_key_exists('class', $args ) ) ? $this->parse_class_args($args['class']) : [];
 		$args['class_outer'] = ( array_key_exists('class_outer', $args ) ) ? $this->parse_class_args($args['class_outer']) : [];
@@ -42,41 +42,29 @@ class Helpers extends FileHelpers {
 		return $args;
 	}
 
-	public function tag( $args = [] )
-	{
-		$args = $this->parse_template_var( $args );
-		$args = $this->set_inline_class_args( $args );
-		$args['class_inline'] .= $this->get_elem_styles_inline($args['elem']);
-		$args = $this->get_attributes( $args );
-		return $this->add_elem( $args );
-	}
-
 
 	public function add( $methodName = '', $args = [] )
 	{
-		if( is_array($args) ) {
-			$args = $this->parse_template_var( $args );
-			$args = $this->set_inline_class_args( $args );
-			$args = $this->get_attributes( $args );
-		}
 		$this->added_content .= $this->$methodName( $args );
 		return $this;
 	}
 
 	public function get( $methodName = '', $args = [] )
 	{
-		if( is_array($args) ) {
-			$args = $this->parse_template_var( $args );
-			$args = $this->set_inline_class_args( $args );
-			$args = $this->get_attributes( $args );
-		}
 		return $this->$methodName( $args );
+	}
+
+	public function set_arg_class_attributes($args = [] ) {
+		$args = $this->set_default_class_args( $args );
+		$args = $this->set_inline_class_args( $args );
+		$args = $this->get_attributes( $args );
+		return $args;
 	}
 
 	public function wrap( $methodName = '', $args = [] )
 	{
 		$args['content'] = $this->added_content;
-		$args = $this->parse_template_var( $args );
+		$args = $this->set_default_class_args( $args );
 		$args = $this->set_inline_class_args( $args );
 		$this->added_content = $this->$methodName($args);
 		return $this;

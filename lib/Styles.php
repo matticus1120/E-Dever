@@ -21,6 +21,8 @@ class Styles extends Sections {
 		$defaults = $this->get_json_data( __DIR__ . '/styles/defaults.css.json' );
 		$this->add_to_styles($defaults);
 
+		$this->lt($this->styles);
+
 		$responsive_styles = $this->get_json_data( __DIR__ . '/styles/responsive.css.json');
 		$this->add_to_styles($responsive_styles, [
 			'breakpoints' => [
@@ -80,7 +82,8 @@ class Styles extends Sections {
 			$this->add_to_header($responsive_styles);
 		}
 		else {
-			$this->styles = array_merge($this->styles, $this->replace_style_vars($new_styles));
+			$old_styles = $this->styles;
+			$this->styles = array_merge($old_styles, $this->replace_style_vars($new_styles));
 			$styles = $this->get_styles_file( 'style-builder.php', $this->styles );
 			$this->add_to_header($styles, 'main-styles');
 		}
@@ -181,6 +184,7 @@ class Styles extends Sections {
 	{
 		if( $classes != '' ) {
 			$inline_styles = '';
+			// $this->lt( $this->styles);
 			foreach($classes as $class) {
 				if(  ( isset( $this->styles[ '.' . $class ] ) )  ) {
 					$inline_styles .= $this->get_styles_inline( $this->styles[ '.' . $class ]  );

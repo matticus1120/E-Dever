@@ -33,6 +33,8 @@ $builder->add_to_styles( $builder->get_json_data( __DIR__ . '/phlegm/phlegm-resp
 	]
 ]);
 
+$builder->lt( $builder->styles );
+
 
 /**
  * Content
@@ -49,7 +51,7 @@ $builder
 		'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/top-image.jpg'
 	])
 	->wrap('container', [
-		'class' => ['simple-container']
+		'class' => 'simple-container'
 	])
 	->wrap('full_width_row', [
 		'class' => 'grey-bg'
