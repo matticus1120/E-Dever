@@ -9,11 +9,6 @@ class Components extends Helpers {
 	public $container_count = 0;
 	public $image_count = 0;
 
-	public function show_me_things( )
-	{
-		return '<p>Oh ya im a thing</p>';
-	}
-
 	public function get_count_class( $elemnt )
 	{
 		$this->container_count ++;
@@ -22,7 +17,12 @@ class Components extends Helpers {
 
 	public function add_elem( $args )
 	{
-		$html = '<' . $args['elem'] . ' class="'. implode(" ", $args['class']) . '" style="' . $args['class_inline'] . '" ' . $args['width'] .  ' ' . $args['height'] .  '>' . $args['content'] . '</' . $args['elem'] .'/>';
+		$html = '<' . $args['elem'];
+		$html .= ' class=" '. implode(" ", $args['class']) . ' " ' ;
+		$html .= ' style="' . $args['class_inline'] . '" ';
+		$html .= $args['width_attr'] .  ' ' . $args['height_attr'] .  '>';
+		$html .= $args['content'];
+		$html .= '</' . $args['elem'] .'>';
 		return $html;
 	}
 
@@ -59,7 +59,7 @@ class Components extends Helpers {
 
 	public function button( $args )
 	{
-		$args['class'] .= ', button';
+		$args['class'] = 'button, ' . $args['class'];
 		$args = $this->set_arg_class_attributes($args);
 		return $this->get_file( $this->dir_settings['component_dir'] . '/button.php', $args );
 	}
@@ -72,9 +72,8 @@ class Components extends Helpers {
 
 	public function container( $args )
 	{	
-
+		$args['class'] = 'container, ' . $args['class'];
 		$args = $this->set_arg_class_attributes($args);
-		$args['width'] = ( array_key_exists('width', $args) ) ? $args['width'] : '600px';
 		return $this->get_file( $this->dir_settings['component_dir'] . '/container.php', $args );
 	}
 

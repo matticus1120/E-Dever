@@ -4,7 +4,7 @@
 		<tr>
 			<td valign="top" <?php echo $align ?> class="image-outer <?php echo implode(" ", $class_outer) ?>"  style="<?php echo $class_outer_inline ?>">
 			<?php echo ( $url ) ? '<a href="' . $url . '" target="_blank">' : ''; ?>
-				<img src="<?php echo $src ?>" alt="" class="<?php echo implode(" ", $class) ?>" <?php echo $width; ?> <?php echo $height; ?>  style="<?php echo $class_inline ?>">
+				<img src="<?php echo $src ?>" alt="" class="<?php echo implode(" ", $class) ?>" <?php echo $width_attr; ?> <?php echo $height_attr; ?>  style="<?php echo $class_inline ?>">
 			<?php echo ( $url ) ? '</a>' : ''; ?>
 			</td>
 		</tr>

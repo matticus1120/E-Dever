@@ -33,9 +33,6 @@ $builder->add_to_styles( $builder->get_json_data( __DIR__ . '/phlegm/phlegm-resp
 	]
 ]);
 
-$builder->lt( $builder->styles );
-
-
 /**
  * Content
  */
@@ -136,9 +133,9 @@ $builder
 				'content' => $builder->get('image', [
 					'src' => 'http://clients.blackjetinteractive.com/eblast/yongestclair/start.jpg',
 					'url' => 'http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=bebb4074781e1410VgnVCM10000071d60f89RCRD',
-					'class_outer' => 'mobile-align-center'
+					'class_outer' => 'mobile-align-center',
+					'align' => 'right'
 				]),
-				'class' => 'align-right',
 				'width' => '50%'
 			],
 		]

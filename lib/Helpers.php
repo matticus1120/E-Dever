@@ -64,8 +64,6 @@ class Helpers extends FileHelpers {
 	public function wrap( $methodName = '', $args = [] )
 	{
 		$args['content'] = $this->added_content;
-		$args = $this->set_default_class_args( $args );
-		$args = $this->set_inline_class_args( $args );
 		$this->added_content = $this->$methodName($args);
 		return $this;
 	}

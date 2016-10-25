@@ -21,8 +21,6 @@ class Styles extends Sections {
 		$defaults = $this->get_json_data( __DIR__ . '/styles/defaults.css.json' );
 		$this->add_to_styles($defaults);
 
-		$this->lt($this->styles);
-
 		$responsive_styles = $this->get_json_data( __DIR__ . '/styles/responsive.css.json');
 		$this->add_to_styles($responsive_styles, [
 			'breakpoints' => [
@@ -49,7 +47,6 @@ class Styles extends Sections {
 	public function replace_font_vars($style_arr)
 	{
 		$array = $style_arr;
-		// $this->lt($this->font_families);
 		foreach($style_arr as $key => $arr) {
 			foreach($arr as $selector => $value) {
 				if( 'font-family' == $selector && array_key_exists( $value, $this->font_families) ) {
@@ -169,8 +166,8 @@ class Styles extends Sections {
 		$args['align'] = (isset( $args['align'] )) ? $args['align'] : null;
 		$args['valign'] = (isset( $args['valign'] )) ? $args['valign'] : null;
 
-		$args['height'] = ( $args['height'] ) ? 'height="' . $args['height'] . '" ' : '';
-		$args['width'] = ( $args['width'] ) ? 'width="' . $args['width'] . '" ' : "";
+		$args['height_attr'] = ( $args['height'] ) ? 'height="' . $args['height'] . '" ' : '';
+		$args['width_attr'] = ( $args['width'] ) ? 'width="' . $args['width'] . '" ' : "";
 
 		$args['align'] = ( $args['align'] ) ? 'align="' . $args['align'] . '" ' : 'align="left"';
 		$args['valign'] = ( $args['valign'] ) ? 'valign="' . $args['valign'] . '" ' : 'align="top"';
@@ -184,7 +181,6 @@ class Styles extends Sections {
 	{
 		if( $classes != '' ) {
 			$inline_styles = '';
-			// $this->lt( $this->styles);
 			foreach($classes as $class) {
 				if(  ( isset( $this->styles[ '.' . $class ] ) )  ) {
 					$inline_styles .= $this->get_styles_inline( $this->styles[ '.' . $class ]  );
