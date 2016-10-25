@@ -15,10 +15,6 @@ $builder->get_default_image_dimensions = false;
 /**
  * Set Variables and Fonts
  */
-// $builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">');
-// $builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto" rel="stylesheet">');
-// $builder->add_to_header('<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Anton|Domine|Josefin+Slab" rel="stylesheet">');
-
 $builder->add_webfont( ["'Domine', serif"], 'https://fonts.googleapis.com/css?family=Amatic+SC|Anton|Domine|Josefin+Slab' );
 $builder->add_webfont( ["'Montserrat', sans-serif"], 'https://fonts.googleapis.com/css?family=Montserrat:400,700' );
 
