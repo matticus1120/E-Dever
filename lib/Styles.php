@@ -7,6 +7,7 @@ include 'Sections.php';
 class Styles extends Sections {
 
 	public $styles = [];
+	public $styles_vars_replaced = '';
 
 	public $font_families = [];
 	public $webfonts = [];
@@ -77,8 +78,9 @@ class Styles extends Sections {
 	public function add_to_styles($styles = [], $args = [])
 	{
 		$this->styles = array_merge($this->styles, $styles);
-		$new_styles = $this->replace_style_vars($this->styles);
-		$new_styles = $this->replace_font_vars($new_styles);
+		$this->styles_vars_replaced = $this->replace_font_vars($this->styles);
+		$this->styles_vars_replaced = $this->replace_style_vars($this->styles_vars_replaced);
+		
 
 		if( isset($args['breakpoints'] )) {
 			// $responsive_styles = $this->get_styles_file( 'responsive-style-builder.php', $styles, $args );
@@ -87,7 +89,7 @@ class Styles extends Sections {
 		else {
 			// $old_styles = $this->styles;
 			// $this->styles = array_merge($old_styles, $this->replace_style_vars($styles));
-			$styles_css = $this->get_styles_file( 'style-builder.php', $new_styles );
+			$styles_css = $this->get_styles_file( 'style-builder.php', $this->styles_vars_replaced );
 			$this->add_to_header($styles_css, 'main-styles');
 		}
 	}
@@ -98,7 +100,6 @@ class Styles extends Sections {
 		$rules = '';
 		$family = $this->font_families[$font_handle];
 		if( $this->is_webfont_in_families($family) ) {
-			$this->lt('reverese');
 			$family = array_reverse($family);
 		}
 		foreach($family as $key => $rule) {
@@ -194,13 +195,13 @@ class Styles extends Sections {
 
 
 	/*take php array of classes, return string for inline styles*/
-	public function get_class_styles_inline( $classes = '' ) 
+	public function get_class_styles_inline( $classes = '' )
 	{
 		if( $classes != '' ) {
 			$inline_styles = '';
 			foreach($classes as $class) {
-				if(  ( isset( $this->styles[ '.' . $class ] ) )  ) {
-					$inline_styles .= $this->get_styles_inline( $this->styles[ '.' . $class ]  );
+				if(  ( isset( $this->styles_vars_replaced[ '.' . $class ] ) )  ) {
+					$inline_styles .= $this->get_styles_inline( $this->styles_vars_replaced[ '.' . $class ]  );
 				}
 			}
 			return $inline_styles;
