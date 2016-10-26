@@ -176,6 +176,61 @@ $builder
 	
 ->add_to_body_content();
 
+$builder
+	->spacer('15px')
+->add_to_body_content();
+
+$social_icons = $builder
+	->columns([
+		'columns' => [
+			[
+				'content' => $builder->get('image', [
+					'url' => 'http://facebook.com',
+					'src' => 'http://themetalworks.ca/wp-content/themes/metalworks-theme/assets/img/LinkedIn.png',
+				])
+			],
+			[
+				'content' => $builder->get('image', [
+					'url' => 'http://facebook.com',
+					'src' => 'http://themetalworks.ca/wp-content/themes/metalworks-theme/assets/img/Facebook.png',
+				])
+			],
+			[
+				'content' => $builder->get('image', [
+					'url' => 'http://facebook.com',
+					'src' => 'http://themetalworks.ca/wp-content/themes/metalworks-theme/assets/img/youtube.png',
+				])
+			],
+			[
+				'content' => $builder->get('image', [
+					'url' => 'http://facebook.com',
+					'src' => 'http://themetalworks.ca/wp-content/themes/metalworks-theme/assets/img/Twitter.png',
+				])
+			]
+		]
+	]);
+
+$builder
+	->spacer('15px')
+	->add('columns', [
+		'class_wrapper' => 'social-outer',
+		'columns' => [
+			[
+				'content' => $social_icons
+			],
+			[
+				'width' => '200px',
+				'content' => 'RIGHT half'
+			]
+		]
+	])
+	->spacer('25px')
+	->wrap('container', [
+		'class_wrapper' => 'white-bg',
+		'class' => 'container-narrow-padding'
+	])
+->add_to_body_content();
+
 
 
 
