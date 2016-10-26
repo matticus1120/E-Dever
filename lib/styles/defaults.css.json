@@ -89,5 +89,11 @@
 		"padding-bottom" : "15px" ,
 		"padding-left" : "30px",
 		"display": "block"
+	},
+	".menu-item": {
+		"display": "inline-block"
+	},
+	".align-right": {
+		"text-align": "right"
 	}
 }

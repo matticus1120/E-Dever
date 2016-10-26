@@ -187,28 +187,68 @@ $social_icons = $builder
 				'content' => $builder->get('image', [
 					'url' => 'http://facebook.com',
 					'src' => 'http://themetalworks.ca/wp-content/themes/metalworks-theme/assets/img/LinkedIn.png',
+					'width' => '20px',
+					'height' => 'auto'
 				])
 			],
 			[
 				'content' => $builder->get('image', [
 					'url' => 'http://facebook.com',
 					'src' => 'http://themetalworks.ca/wp-content/themes/metalworks-theme/assets/img/Facebook.png',
+					'width' => '20px',
+					'height' => 'auto'
 				])
 			],
 			[
 				'content' => $builder->get('image', [
 					'url' => 'http://facebook.com',
 					'src' => 'http://themetalworks.ca/wp-content/themes/metalworks-theme/assets/img/youtube.png',
+					'width' => '20px',
+					'height' => 'auto'
 				])
 			],
 			[
 				'content' => $builder->get('image', [
 					'url' => 'http://facebook.com',
 					'src' => 'http://themetalworks.ca/wp-content/themes/metalworks-theme/assets/img/Twitter.png',
+					'width' => '20px',
+					'height' => 'auto'
 				])
 			]
 		]
 	]);
+
+
+
+$menu = $builder
+	->menu([
+		'columns' => [
+			[
+				'content' => '<a href="http://localhost:8888/eBlasts/blackjet-template/e-comm.php">Item One</a>',
+				'align' => 'right'
+			],
+			[
+				'content' => '<a href="http://localhost:8888/eBlasts/blackjet-template/e-comm.php">Item One</a>',
+				'align' => 'right'
+			],
+			[
+				'content' => '<a href="http://localhost:8888/eBlasts/blackjet-template/e-comm.php">Item One</a>',
+				'align' => 'right'
+			],
+			[
+				'content' => '<a href="http://localhost:8888/eBlasts/blackjet-template/e-comm.php">Item One</a>',
+				'align' => 'right'
+			]
+		]
+]);
+
+$menu_content_outer = $builder->get('text_block', [
+	'content' => $menu,
+	'width' => '200px',
+	'align' => 'right',
+	'class' => 'should-be-menu-outer, align-right',
+	'class_wrapper' => 'align-right'
+]);
 
 $builder
 	->spacer('15px')
@@ -216,11 +256,12 @@ $builder
 		'class_wrapper' => 'social-outer',
 		'columns' => [
 			[
-				'content' => $social_icons
+				'content' => $social_icons,
+				'width' => '140px'
 			],
 			[
-				'width' => '200px',
-				'content' => 'RIGHT half'
+				'content' => $menu_content_outer,
+				'align' => 'right'
 			]
 		]
 	])

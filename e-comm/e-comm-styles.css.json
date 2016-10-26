@@ -51,5 +51,8 @@
 	".hero-sub-heading": {
 		"line-height": "1.2",
 		"margin-bottom": "15px"
+	},
+	".menu-item a": {
+		"font-size": "12px"
 	}
 }
