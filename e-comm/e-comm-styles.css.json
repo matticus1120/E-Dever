@@ -24,6 +24,10 @@
 		"padding-left" : "35px",
 		"padding-right" : "35px"
 	},
+	".container-narrow-padding": {
+		"padding-left": "15px",
+		"padding-right": "15px"
+	},
 	".header-logo": {
 		"color": "#FFFFFF",
 		"font-size": "20px"

@@ -20,6 +20,8 @@ class Components extends Helpers {
 		$html = '<' . $args['elem'];
 		$html .= ' class=" '. implode(" ", $args['class']) . ' " ' ;
 		$html .= ' style="' . $args['class_inline'] . '" ';
+		$html .= ' ' . $args['align'] . ' ';
+		$html .= ' ' . $args['valign'] . ' ';
 		$html .= $args['width_attr'] .  ' ' . $args['height_attr'] .  '>';
 		$html .= $args['content'];
 		$html .= '</' . $args['elem'] .'>';
@@ -92,14 +94,16 @@ class Components extends Helpers {
 
 	public function columns( $args )
 	{
+		$this->lt($args);
 		$args = $this->set_arg_class_attributes($args);
 		$inner_content = '';
 		$width = 600 / count($args['columns']);
-
+		
 		foreach($args['columns'] as $key => $column ) {
 			$column['elem'] = 'td';
 			$column['class'] = 'column';
 			$inner_content .= $this->tag( $column );
+			$this->lt($column);
 		}
 		
 		$args['content'] = $inner_content;

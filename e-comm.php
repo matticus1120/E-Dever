@@ -44,12 +44,14 @@ $builder
 $right_promo = $builder->tag([
 	'elem' => 'h2',
 	'content' => 'Prices Drop<br>Quality Doesn\'t',
-	'class' => 'hero-sub-heading'
+	'class' => 'hero-sub-heading',
+	'align' => 'center'
 ]);
 $right_promo .= $builder->tag([
 	'elem' => 'h1',
 	'content' => 'Save 20% before it\'s too late.',
-	'class' => 'hero-heading'
+	'class' => 'hero-heading',
+	'align' => 'center'
 ]);
 
 $builder
@@ -77,6 +79,7 @@ $builder
 ->add_to_body_content();
 
 $builder
+	->spacer('20px')
 	->add('text_block', [
 		'content' => $builder->tag([
 			'elem' => 'p',
@@ -121,22 +124,26 @@ $col_one .= $builder->get('tag', [
 				]);
 
 $col_two = $builder->get('image', [
-					'src' => 'http://localhost:8888/eBlasts/blackjet-template/e-comm/square-2.jpg'
+					'src' => 'http://localhost:8888/eBlasts/blackjet-template/e-comm/square-2.jpg',
 				]);
 $col_two .= $builder->get('tag', [
 					'elem' => 'p',
-					'content' => '<a href="">Hi there Lookie lookie</a>'
+					'content' => '<a href="">Hi there Lookie lookie</a>',
+					'align' => 'center'
 				]);
 
 $col_three = $builder->get('image', [
-					'src' => 'http://localhost:8888/eBlasts/blackjet-template/e-comm/square-3.jpg'
+					'src' => 'http://localhost:8888/eBlasts/blackjet-template/e-comm/square-3.jpg',
+					'align' => 'center'
 				]);
 $col_three .= $builder->get('tag', [
 					'elem' => 'p',
-					'content' => '<a href="">Click here!</a>'
+					'content' => '<a href="">Click here!</a>',
+					'align' => 'center'
 				]);
 
 $builder
+	->spacer('15px')
 	->add('text_block', [
 		'content' => $builder->tag([
 			'elem' => 'h3',
@@ -145,7 +152,7 @@ $builder
 		])
 	])
 	->add('columns', [
-		'class_wrapper' => 'hero-images-outer',
+		'class_wrapper' => 'promo-images-outer',
 		'columns' => [
 			[
 				'width' => '200px',
@@ -153,18 +160,20 @@ $builder
 			],
 			[
 				'width' => '200px',
-				'content' => $col_two
+				'content' => $col_two,
 			],
 			[
 				'width' => '200px',
-				'content' => $col_three
+				'content' => $col_three,
 			],
 		]
 	])
+	->spacer('25px')
 	->wrap('container', [
-		'class_wrapper' => 'white-bg'
+		'class_wrapper' => 'white-bg',
+		'class' => 'container-narrow-padding'
 	])
-	->spacer('15px')
+	
 ->add_to_body_content();
 
 
