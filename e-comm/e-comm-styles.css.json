@@ -1,0 +1,15 @@
+{
+	"p, td, a, th": {
+		"font-family": "body-font"
+	},
+	".header-logo": {
+		"color": "#FFFFFF",
+		"font-size": "20px"
+	},
+	".black-bg": {
+		"background-color": "#000000"
+	},
+	".align-center": {
+		"text-align": "center"
+	}
+}
