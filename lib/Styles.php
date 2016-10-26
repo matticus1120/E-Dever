@@ -7,7 +7,6 @@ include 'Sections.php';
 class Styles extends Sections {
 
 	public $styles = [];
-	public $styles_vars_replaced = '';
 
 	public $font_families = [];
 	public $webfonts = [];
@@ -77,20 +76,18 @@ class Styles extends Sections {
 	/*add a block of PHP CSS*/
 	public function add_to_styles($styles = [], $args = [])
 	{
-		$this->styles = array_merge($this->styles, $styles);
-		$this->styles_vars_replaced = $this->replace_font_vars($this->styles);
-		$this->styles_vars_replaced = $this->replace_style_vars($this->styles_vars_replaced);
-		
+		$new_styles = $this->replace_font_vars($styles);
+		$new_styles = $this->replace_style_vars($new_styles);
 
 		if( isset($args['breakpoints'] )) {
-			// $responsive_styles = $this->get_styles_file( 'responsive-style-builder.php', $styles, $args );
-			// $this->add_to_header($responsive_styles);
+			$responsive_styles = $this->get_styles_file( 'responsive-style-builder.php', $new_styles, $args );
+			$this->add_to_header($responsive_styles);
 		}
 		else {
-			// $old_styles = $this->styles;
-			// $this->styles = array_merge($old_styles, $this->replace_style_vars($styles));
-			$styles_css = $this->get_styles_file( 'style-builder.php', $this->styles_vars_replaced );
-			$this->add_to_header($styles_css, 'main-styles');
+			$old_styles = $this->styles;
+			$this->styles = array_merge($old_styles, $this->replace_style_vars($new_styles));
+			$styles = $this->get_styles_file( 'style-builder.php', $this->styles );
+			$this->add_to_header($styles, 'main-styles');
 		}
 	}
 
@@ -131,8 +128,10 @@ class Styles extends Sections {
 		if( count($this->webfonts) > 0 ) {
 			$this->add_global_font_rules($familes);
 		}
-
-		$this->font_families = array_merge($this->font_families, $familes);
+		
+		foreach($familes as $family => $rules) {
+			$this->add_font_family( $family, $rules );
+		}
 
 	}
 
@@ -145,7 +144,6 @@ class Styles extends Sections {
 				"font-family" => implode(", ", $rules) . ' !important'
 			];
 		}
-
 		$this->add_to_styles($global_font_rules);
 	}
 
@@ -195,13 +193,13 @@ class Styles extends Sections {
 
 
 	/*take php array of classes, return string for inline styles*/
-	public function get_class_styles_inline( $classes = '' )
+	public function get_class_styles_inline( $classes = '' ) 
 	{
 		if( $classes != '' ) {
 			$inline_styles = '';
 			foreach($classes as $class) {
-				if(  ( isset( $this->styles_vars_replaced[ '.' . $class ] ) )  ) {
-					$inline_styles .= $this->get_styles_inline( $this->styles_vars_replaced[ '.' . $class ]  );
+				if(  ( isset( $this->styles[ '.' . $class ] ) )  ) {
+					$inline_styles .= $this->get_styles_inline( $this->styles[ '.' . $class ]  );
 				}
 			}
 			return $inline_styles;

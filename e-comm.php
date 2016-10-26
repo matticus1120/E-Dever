@@ -26,8 +26,7 @@ $builder->add_to_styles( $builder->get_json_data( __DIR__ . '/e-comm/e-comm-styl
 $header_text = $builder->tag([
 		'elem' => 'h1',
 		'content' => 'Super Dope E-Comm Letter',
-		'class' => 'header-logo, align-center',
-		'font-family' => 'font-family-2, '
+		'class' => 'header-logo, align-center, my-style',
 	]);
 
 $builder
