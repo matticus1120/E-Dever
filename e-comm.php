@@ -55,6 +55,7 @@ $right_promo .= $builder->tag([
 	'align' => 'center'
 ]);
 
+/*top banner*/
 $builder
 	->add('columns', [
 		'class_block' => 'hero-images-outer',
@@ -74,6 +75,7 @@ $builder
 			]
 		]
 	])
+	/*container*/
 	->wrap('container', [
 		'class' => 'white-bg, top-hero'
 	])
@@ -92,7 +94,8 @@ $builder
 	->add('content_block', [
 		'content' => $builder->get('button', [
 			'content' => "Shop Now to Save 50%!",
-			'align' => 'center'
+			'align' => 'center',
+			'url' => 'http://globalnews.ca/news/3027015/over-60-per-cent-of-canadians-support-distracted-walking-legislation/'
 		])
 	])
 	->spacer('10px')
@@ -115,7 +118,8 @@ $builder
 
 
 $col_one = $builder->get('image', [
-					'src' => 'http://localhost:8888/eBlasts/blackjet-template/e-comm/square-1.jpg'
+					'src' => 'http://localhost:8888/eBlasts/blackjet-template/e-comm/square-1.jpg',
+					'url' => 'http://globalnews.ca/news/3027015/over-60-per-cent-of-canadians-support-distracted-walking-legislation/'
 				]);
 $col_one .= $builder->get('tag', [
 					'elem' => 'p',
@@ -124,6 +128,7 @@ $col_one .= $builder->get('tag', [
 
 $col_two = $builder->get('image', [
 					'src' => 'http://localhost:8888/eBlasts/blackjet-template/e-comm/square-2.jpg',
+					'url' => 'http://globalnews.ca/news/3027015/over-60-per-cent-of-canadians-support-distracted-walking-legislation/'
 				]);
 $col_two .= $builder->get('tag', [
 					'elem' => 'p',
@@ -132,6 +137,7 @@ $col_two .= $builder->get('tag', [
 
 $col_three = $builder->get('image', [
 					'src' => 'http://localhost:8888/eBlasts/blackjet-template/e-comm/square-3.jpg',
+					'url' => 'http://globalnews.ca/news/3027015/over-60-per-cent-of-canadians-support-distracted-walking-legislation/'
 				]);
 $col_three .= $builder->get('tag', [
 					'elem' => 'p',
@@ -147,7 +153,8 @@ $builder
 		])
 	])
 	->add('columns', [
-		'class_block' => 'promo-images-outer',
+		'class_block' => 'promo-images-block',
+		'class_outer' => 'promo-images-outer',
 		'columns' => [
 			[
 				'width' => '200px',
@@ -163,16 +170,13 @@ $builder
 			],
 		]
 	])
-	->spacer('25px')
+	->wrap('content_wrapper')
 	->wrap('container', [
 		'class' => 'white-bg'
 	])
 	
 ->add_to_body_content();
 
-$builder
-	->spacer('15px')
-->add_to_body_content();
 
 $social_icons = $builder
 	->columns([
@@ -255,9 +259,8 @@ $menu = $builder
 
 $menu_content_outer = $builder->get('content_block', [
 	'content' => $menu,
-	'width' => '200px',
-	'align' => 'right',
-	'class' => 'should-be-menu-outer, align-right',
+	'align' => 'left',
+	'class' => 'should-be-menu-outer',
 	'class_block' => 'align-right'
 ]);
 
@@ -276,29 +279,26 @@ $builder
 			],
 			[
 				'content' => $menu_content_outer,
-				'align' => 'right'
 			]
 		]
 	])
-	->spacer('25px')
+	->spacer('10px')
+	->wrap('content_wrapper')
 	->wrap('container', [
 		'class' => 'white-bg'
 	])
 ->add_to_body_content();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$builder
+	->spacer('20px')
+	->add('content_block', [
+		'content' => 'Topping brownie gingerbread cake sugar plum bear claw jujubes. Croissant biscuit pudding marshmallow icing cotton candy cupcake. Sesame snaps liquorice cheesecake macaroon cake ice cream tart jujubes. Jelly carrot cake lemon drops oat cake apple pie gingerbread halvah chocolate powder.
+			Powder candy cookie croissant chocolate sesame snaps chocolate bar. Topping soufflé cake. Croissant gingerbread marshmallow chocolate cake bonbon. Tiramisu macaroon apple pie marshmallow croissant jelly cupcake tootsie roll.',
+			'align' => "left"
+	])
+	->wrap('container', [
+		'class' => 'legal-container'
+	])
+->add_to_body_content();
 
 $builder->get_email();

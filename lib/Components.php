@@ -88,6 +88,14 @@ class Components extends Helpers {
 		return $this->get_file( $this->dir_settings['component_dir'] . '/full-width-row.php', $args );
 	}
 
+	public function content_wrapper( $args )
+	{
+		$args['class'] =  ( array_key_exists('class', $args) ) ?  'content-wrapper, ' . $args['class'] : 'content-wrapper';
+		$args['class_block'] =  ( array_key_exists('class_block', $args) ) ?  'content-wrapper-block, ' . $args['class'] : 'content-wrapper-block';
+		$args = $this->set_arg_class_attributes($args);
+		return $this->get_file( $this->dir_settings['component_dir'] . '/content-block.php', $args );
+	}
+
 	public function container( $args )
 	{	
 		$args['class'] = 'container, ' . $args['class'];
@@ -107,6 +115,7 @@ class Components extends Helpers {
 
 	public function columns( $args, $elem = 'td', $child_class = 'column' )
 	{
+		$args['class_block'] =  ( array_key_exists('class_block', $args) ) ?  'row, ' . $args['class_block'] : 'row';
 		$args = $this->set_arg_class_attributes($args);
 		$inner_content = '';
 		$width = 600 / count($args['columns']);

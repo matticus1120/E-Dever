@@ -12,7 +12,7 @@ class Styles extends Sections {
 	public $webfonts = [];
 	public $style_vars = [];
 
-	public $get_default_image_dimensions = true;
+	public $get_default_image_dimensions = false;
 
 	public function build_styles()
 	{
@@ -185,8 +185,8 @@ class Styles extends Sections {
 		$args['height_attr'] = ( $args['height'] ) ? 'height="' . $args['height'] . '" ' : '';
 		$args['width_attr'] = ( $args['width'] ) ? 'width="' . $args['width'] . '" ' : "";
 
-		$args['align'] = ( $args['align'] ) ? 'align="' . $args['align'] . '" ' : 'align="left"';
-		$args['valign'] = ( $args['valign'] ) ? 'valign="' . $args['valign'] . '" ' : 'align="top"';
+		$args['align'] = ( $args['align'] ) ? 'align="' . $args['align'] . '" ' : 'align="center"';
+		$args['valign'] = ( $args['valign'] ) ? 'valign="' . $args['valign'] . '" ' : 'valign="top"';
 
 		return $args;
 	}
