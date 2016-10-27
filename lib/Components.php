@@ -92,29 +92,24 @@ class Components extends Helpers {
 
 	public function columns( $args, $elem = 'td', $child_class = 'column' )
 	{
-		
 		$args = $this->set_arg_class_attributes($args);
 		$inner_content = '';
 		$width = 600 / count($args['columns']);
 		
 		foreach($args['columns'] as $key => $column ) {
-			$column['elem'] = $elem;
-			$column['class'] = $child_class;
-			$inner_content .= $this->tag( $column );
-			$this->lt($column);
+			$column['class'] =  ( array_key_exists('class', $column) ) ? $child_class . ', ' . $column['class'] : $child_class;
+			$column = $this->set_arg_class_attributes($column);
+			$inner_content .=  $this->get_file( $this->dir_settings['component_dir'] . '/column.php', $column );
 		}
 		
 		$args['content'] = $inner_content;
-		$args['class_wrapper'][] = ' columns-' . count($args['columns']);
-
-		// $outer_content = $this->get('row',  $args );
-		$outer_content = $this->get('content_block', $args );
+		$outer_content =  $this->get_file( $this->dir_settings['component_dir'] . '/row.php', $args );
 
 		return $outer_content;
-
 	}
 
 	public function menu($args) {
+		$this->lt($args);
 		return $this->columns($args, 'td', 'menu-item');
 	}
 

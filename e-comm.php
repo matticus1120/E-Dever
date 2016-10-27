@@ -31,7 +31,7 @@ $header_text = $builder->tag([
 
 $builder
 	->spacer('40px')
-	->add('text_block', [
+	->add('content_block', [
 		'content' => $header_text,
 	])
 	->spacer('40px')
@@ -66,7 +66,7 @@ $builder
 			],
 			[
 				'width' => '50%',
-				'content' => $builder->get('text_block', [
+				'content' => $builder->get('content_block', [
 					'content' => $right_promo,
 					'class' => 'align-center'
 				])
@@ -80,7 +80,7 @@ $builder
 
 $builder
 	->spacer('20px')
-	->add('text_block', [
+	->add('content_block', [
 		'content' => $builder->tag([
 			'elem' => 'p',
 			'content' => 'Chocolate cake marshmallow pie jelly-o chupa chups powder cupcake cookie toffee. Cake jelly wafer powder cotton candy jelly cheesecake. Bear claw gummies apple pie pudding sweet roll. Cookie chocolate bar muffin jelly beans cupcake cheesecake.',
@@ -88,14 +88,14 @@ $builder
 		])
 	])
 	->spacer('20px')
-	->add('text_block', [
+	->add('content_block', [
 		'content' => $builder->get('button', [
 			'content' => "Shop Now to Save 50%!",
 			'align' => 'center'
 		])
 	])
 	->spacer('10px')
-	->add('text_block', [
+	->add('content_block', [
 		'content' => $builder->tag([
 			'elem' => 'p',
 			'content' => 'Use promo code <strong>J533C</strong> at checkout.',
@@ -119,7 +119,6 @@ $col_one = $builder->get('image', [
 $col_one .= $builder->get('tag', [
 					'elem' => 'p',
 					'content' => '<a href="">Lookie lookie</a>',
-					'align' => 'center'
 				]);
 
 $col_two = $builder->get('image', [
@@ -128,22 +127,19 @@ $col_two = $builder->get('image', [
 $col_two .= $builder->get('tag', [
 					'elem' => 'p',
 					'content' => '<a href="">Hi there Lookie lookie</a>',
-					'align' => 'center'
 				]);
 
 $col_three = $builder->get('image', [
 					'src' => 'http://localhost:8888/eBlasts/blackjet-template/e-comm/square-3.jpg',
-					'align' => 'center'
 				]);
 $col_three .= $builder->get('tag', [
 					'elem' => 'p',
 					'content' => '<a href="">Click here!</a>',
-					'align' => 'center'
 				]);
 
 $builder
 	->spacer('15px')
-	->add('text_block', [
+	->add('content_block', [
 		'content' => $builder->tag([
 			'elem' => 'h3',
 			'content' => 'Check out these super duper promos!',
@@ -220,6 +216,7 @@ $social_icons = $builder
 
 $menu = $builder
 	->menu([
+		'align' => 'right',
 		'columns' => [
 			[
 				'content' => '<a href="http://localhost:8888/eBlasts/blackjet-template/e-comm.php">Item One</a>',
@@ -240,7 +237,7 @@ $menu = $builder
 		]
 ]);
 
-$menu_content_outer = $builder->get('text_block', [
+$menu_content_outer = $builder->get('content_block', [
 	'content' => $menu,
 	'width' => '200px',
 	'align' => 'right',
