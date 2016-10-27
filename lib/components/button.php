@@ -1,5 +1,4 @@
 <?php extract($variables) ?>
-
 <table class="<?php  echo implode(" ", $class_wrapper) ?>" border="0" cellpadding="0" cellspacing="0" style="<?php echo $class_wrapper_inline; ?>">
 	<tr>
 		<td class="<?php  echo implode(" ", $class_outer) ?>"  valign="middle" style="<?php echo $class_outer_inline; ?>">

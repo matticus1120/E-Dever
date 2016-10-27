@@ -73,7 +73,7 @@ $text .= $builder->tag([
 
 $builder
 	->spacer('80px')
-	->add('text_block', [
+	->add('content_block', [
 		'content' => $text,
 		'class' => 'white-text, align-center'
 	])

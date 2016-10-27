@@ -20,8 +20,6 @@ class Components extends Helpers {
 		$html = '<' . $args['elem'];
 		$html .= ' class=" '. implode(" ", $args['class']) . ' " ' ;
 		$html .= ' style="' . $args['class_inline'] . '" ';
-		$html .= ' ' . $args['align'] . ' ';
-		$html .= ' ' . $args['valign'] . ' ';
 		$html .= $args['width_attr'] .  ' ' . $args['height_attr'] .  '>';
 		$html .= $args['content'];
 		$html .= '</' . $args['elem'] .'>';
@@ -40,17 +38,17 @@ class Components extends Helpers {
 
 	public function spacer($height = "20px")
 	{
-		return $this->add('text_block', [
+		return $this->add('content_block', [
 			'class' => 'spacer, cool-spacer',
 			'content' => '',
 			'height' => $height
 		]);
 	}
 
-	public function text_block( $args )
+	public function content_block( $args )
 	{
 		$args = $this->set_arg_class_attributes($args);
-		return $this->get_file( $this->dir_settings['component_dir'] . '/text-block.php', $args );
+		return $this->get_file( $this->dir_settings['component_dir'] . '/content-block.php', $args );
 	}
 
 	public function row( $args )
@@ -110,7 +108,7 @@ class Components extends Helpers {
 		$args['class_wrapper'][] = ' columns-' . count($args['columns']);
 
 		// $outer_content = $this->get('row',  $args );
-		$outer_content = $this->get('text_block', $args );
+		$outer_content = $this->get('content_block', $args );
 
 		return $outer_content;
 
