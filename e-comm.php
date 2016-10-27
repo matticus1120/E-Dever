@@ -36,7 +36,7 @@ $builder
 	])
 	->spacer('40px')
 	->wrap('container', [
-		'class_wrapper' => 'black-bg'
+		'class' => 'black-bg'
 	])
 ->add_to_body_content();
 
@@ -74,7 +74,7 @@ $builder
 		]
 	])
 	->wrap('container', [
-		'class_wrapper' => 'white-bg, top-hero'
+		'class' => 'white-bg, top-hero'
 	])
 ->add_to_body_content();
 
@@ -104,7 +104,6 @@ $builder
 	])
 	->spacer('50px')
 	->wrap('container', [
-		'class_wrapper' => 'white-bg',
 		'class' => 'container-padding'
 	])
 ->add_to_body_content();
@@ -170,7 +169,6 @@ $builder
 	])
 	->spacer('25px')
 	->wrap('container', [
-		'class_wrapper' => 'white-bg',
 		'class' => 'container-narrow-padding'
 	])
 	
@@ -267,7 +265,6 @@ $builder
 	])
 	->spacer('25px')
 	->wrap('container', [
-		'class_wrapper' => 'white-bg',
 		'class' => 'container-narrow-padding'
 	])
 ->add_to_body_content();

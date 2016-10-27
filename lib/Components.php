@@ -77,7 +77,7 @@ class Components extends Helpers {
 
 	public function container( $args )
 	{	
-		$args['class_wrapper'] = 'container, ' . $args['class_wrapper'];
+		$args['class'] = 'container, ' . $args['class'];
 		$args = $this->set_arg_class_attributes($args);
 		return $this->get_file( $this->dir_settings['component_dir'] . '/container.php', $args );
 	}
