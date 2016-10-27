@@ -7,7 +7,8 @@ use Builder\Styles;
 class Builder extends Styles {
 
 	public $settings = [
-		'title' => 'Blackjet Eblast Template'
+		'title' => 'Blackjet Eblast Template',
+		'output_file' => null
 	];
 
 	public $email = null;
@@ -78,6 +79,12 @@ class Builder extends Styles {
 	{
 		$this->build_email();
 		echo $this->email;
+	}
+
+	public function output_email_to_file()
+	{
+		$this->build_email();
+		file_put_contents($this->settings['output_file'], $this->email);
 	}
 
 }

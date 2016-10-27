@@ -7,7 +7,8 @@ require_once(  './lib/Builder.php');
 $builder = new Builder();
 
 $builder->set_settings([
-		'title' => 'Cool E-Comm Newsletter'
+		'title' => 'Cool E-Comm Newsletter',
+		'output_file' => __DIR__ . '/e-comm/e-comm.html' 
 ]);
 
 $builder->add_webfont(["'Roboto', sans-serif"], "https://fonts.googleapis.com/css?family=Oswald|Roboto");
@@ -302,3 +303,10 @@ $builder
 ->add_to_body_content();
 
 $builder->get_email();
+// $builder->output_email_to_file();
+
+
+
+
+
+
