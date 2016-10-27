@@ -28,7 +28,7 @@ class Helpers extends FileHelpers {
 	{
 		$args['class'] = ( array_key_exists('class', $args ) ) ? $this->parse_class_args($args['class']) : [];
 		$args['class_outer'] = ( array_key_exists('class_outer', $args ) ) ? $this->parse_class_args($args['class_outer']) : [];
-		$args['class_wrapper'] = ( array_key_exists('class_wrapper', $args ) ) ? $this->parse_class_args($args['class_wrapper'] ): [];
+		$args['class_block'] = ( array_key_exists('class_block', $args ) ) ? $this->parse_class_args($args['class_block'] ): [];
 
 		return $args;
 	}
@@ -37,7 +37,7 @@ class Helpers extends FileHelpers {
 	{
 		$args['class_inline'] = $this->get_class_styles_inline( $args['class'] );
 		$args['class_outer_inline'] = $this->get_class_styles_inline( $args['class_outer'] );
-		$args['class_wrapper_inline'] = $this->get_class_styles_inline( $args['class_wrapper'] );
+		$args['class_block_inline'] = $this->get_class_styles_inline( $args['class_block'] );
 
 		return $args;
 	}

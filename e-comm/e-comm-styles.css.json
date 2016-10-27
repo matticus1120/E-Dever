@@ -52,7 +52,24 @@
 		"line-height": "1.2",
 		"margin-bottom": "15px"
 	},
-	".menu-item a": {
-		"font-size": "12px"
+	".footer-menu-item": {
+		"padding-left": "9px",
+		"padding-right": "9px",
+		"border-left": "solid thin"
+	},
+	".first-child": {
+		"border-left": "none"
+	},
+	".last-child": {
+		"padding-right": "0"
+	},
+	".content-padding": {
+		"padding-left": "30px",
+		"padding-right": "30px"
+	},
+	".link": {
+		"text-decoration": "none",
+		"font-size": "15px",
+		"color": "#181818"
 	}
 }

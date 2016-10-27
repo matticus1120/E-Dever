@@ -59,12 +59,27 @@ class Components extends Helpers {
 
 	public function button( $args )
 	{
-		$args['class_wrapper'] = ( isset( $args['class_outer']) ) ? 'button-wrapper, ' . $args['class_outer'] : 'button-wrapper';
+		$args['class_block'] = ( isset( $args['class_outer']) ) ? 'button-wrapper, ' . $args['class_block'] : 'button-wrapper';
 		$args['class_outer'] = ( isset($args['class_outer']) ) ? 'button-outer, ' . $args['class_outer'] : 'button-outer';
 		$args['class'] = ( isset(  $args['class'] ) ) ? 'button, ' . $args['class'] : 'button';
 
 		$args = $this->set_arg_class_attributes($args);
 		return $this->get_file( $this->dir_settings['component_dir'] . '/button.php', $args );
+	}
+
+	public function link($args)
+	{
+		$args['class'] = ( isset(  $args['class'] ) ) ? 'link, ' . $args['class'] : 'link';
+		$args = $this->set_arg_class_attributes($args);
+
+		$html = '<a';
+		$html .= ' href="' . $args['url'] . '"';
+		$html .= ' class=" '. implode(" ", $args['class']) . ' " ' ;
+		$html .= ' style="' . $args['class_inline'] . '" ';
+		$html .= $args['width_attr'] .  ' ' . $args['height_attr'] .  '>';
+		$html .= $args['content'];
+		$html .= '</a>';
+		return $html;
 	}
 
 	public function full_width_row( $args )
@@ -109,7 +124,6 @@ class Components extends Helpers {
 	}
 
 	public function menu($args) {
-		$this->lt($args);
 		return $this->columns($args, 'td', 'menu-item');
 	}
 
