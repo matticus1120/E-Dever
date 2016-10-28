@@ -354,22 +354,6 @@ _Note:_ Webfonts are not supported in Outlook, and in fact will ignore your back
 `<h1 class="header-title" style="font-family:Tahoma, sans-serif, Impact, Charcoal, sans-serif, 'Oswald', sans-serif;">Super Cool Header Title</h1>`
 
 
-###Components and Options
-
-Components and be accessed using the `get` or `add` methods, and both options take an array of options.
-
-| Component | Description |
-|-----------|------------|-------------|
-|'content_block'  | A table that should be used as the main container for content. |
-
-
-
-
-
-
-
-
-
 
 
 
