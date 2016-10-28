@@ -1,9 +1,0 @@
-{
-	".mobile-align-center": {
-		"text-align": "center !important",
-		"padding-bottom": "20px"
-	},
-	".mobile-align-center img": {
-		"margin": "0 auto !important"
-	}
-}
