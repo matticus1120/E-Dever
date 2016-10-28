@@ -1,6 +1,6 @@
 <?php
 
-namespace Builder;
+namespace eDever;
 
 include 'FileHelpers.php';
 
@@ -8,15 +8,6 @@ class Helpers extends FileHelpers {
 
 	public $added_content = '';
 	public $wrappers = [];
-
-	public static function getInstance()
-	{
-		if (null === static::$instance) {
-			static::$instance = new static();
-		}
-
-		return static::$instance;
-	}
 
 	public function lt($data) { ?>
 		<script>
@@ -41,7 +32,6 @@ class Helpers extends FileHelpers {
 
 		return $args;
 	}
-
 
 	public function add( $methodName = '', $args = [] )
 	{
@@ -75,4 +65,18 @@ class Helpers extends FileHelpers {
 		return null;
 	}
 
+	public function add_fonts($file) 
+	{
+		$this->add_font_families($this->get_json_data( $file ) );
+	}
+
+	public function add_styles( $file )
+	{
+		$this->add_to_styles( $this->get_json_data( $file ));
+	}
+
+	public function add_styles_vars( $file )
+	{
+		$this->add_style_vars( $this->get_json_data( $file )  );
+	}
 }

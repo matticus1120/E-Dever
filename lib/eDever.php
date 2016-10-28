@@ -2,9 +2,9 @@
 
 include 'Styles.php';
 
-use Builder\Styles;
+use eDever\Styles;
 
-class Builder extends Styles {
+class eDever extends Styles {
 
 	public $settings = [
 		'title' => 'Blackjet Eblast Template',
@@ -81,10 +81,10 @@ class Builder extends Styles {
 		echo $this->email;
 	}
 
-	public function output_email_to_file()
+	public function output_email_to_file( $destination_file )
 	{
 		$this->build_email();
-		file_put_contents($this->settings['output_file'], $this->email);
+		file_put_contents( $destination_file, $this->email);
 	}
 
 }

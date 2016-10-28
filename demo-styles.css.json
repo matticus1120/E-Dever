@@ -1,0 +1,32 @@
+{
+	"body": {
+		"background-color": "$off-white"
+	},
+	".dark-bg": {
+		"background-color": "#232323"
+	},
+	".white-bg": {
+		"background-color": "#FFFFFF"
+	},
+	".dark-blue-bg": {
+		"background-color": "#0F1E51"
+	},
+	".email-headline": {
+		"color": "$off-white"
+	},
+	".tagline": {
+		"color": "$off-white",
+		"font-style": "italic"
+	},
+	".padding-sides": {
+		"padding-right": "30px",
+		"padding-left": "30px"
+	},
+	".my-button": {
+		"font-family": "font-family-2"
+	},
+	".legal": {
+		"color": "$off-white",
+		"font-size": "11px"
+	}
+}
