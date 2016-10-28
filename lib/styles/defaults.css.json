@@ -1,0 +1,99 @@
+{
+	"h1, h2, h3, h4, h5" : {
+		"display" : "block",
+		"margin" : "0",
+		"padding" : "0",
+		"font-family" : "font-family-2"
+	},
+	"h1" : {
+		"font-size" : "26px",
+		"line-height" : "30px"
+	},
+	"h2" : {
+		"font-size" : "21px",
+		"line-height" : "25px"
+	},
+	"img" : {
+		"display" : "block",
+		"max-width" : "100%",
+		"-ms-interpolation-mode" : "bicubic"
+	},
+	"img, a img": {
+		"border": "0",
+		"outline": "none",
+		"text-decoration": "none"
+	},
+	"table, td": {
+		"border-collapse": "collapse",
+		"mso-table-lspace" : "0pt",
+		"mso-table-rspace" : "0pt"
+	},
+	".ReadMsgBody": {
+		"width": "100%"
+	},
+	".ExternalClass": {
+		"width": "100%"
+	},
+	".ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div ": {
+		"line-height": "100%"
+	},
+	"body, table, td, p, a, li, blockquote": {
+		"-ms-text-size-adjust" : "100%",
+		"-webkit-text-size-adjust" : "100%"
+	},
+	"html, body" : {
+		"padding" : "0",
+		"margin" : "0",
+		"height": "100% !important",
+		"width": "100% !important"
+	},
+	"body" : {
+		"font-family" : "font-family-1",
+		"color" : "#464646",
+		"background-color": "#FFFFFF"
+	},
+	"p": {
+		"font-family": "font-family-1"
+	},
+	"td": {
+		"font-family": "font-family-1"
+	},
+	".container" : {
+		"width" : "600px",
+		"margin" : "0 auto"
+	},
+	".align-center" : {
+		"text-align" : "center"
+	},
+	".align-right": {
+		"text-align" :"right"
+	},
+	".button-wrapper" : {
+		"background-color": "#505050",
+		"border": "solid 1px #353535",
+		"border-radius": "5px"
+	},
+	".button-outer": {
+		"color" : "#FFFFFF" ,
+		"font-family" : "font-family-1" ,
+		"font-size" : "16px" ,
+		"font-weight" : "bold" ,
+		"letter-spacing" : "-.5px" 
+	},
+	".button" : {
+		"color":"#FFFFFF",
+		"text-decoration": "none",
+		"line-height" : "150%" ,
+		"padding-top" : "15px" ,
+		"padding-right" : "30px" ,
+		"padding-bottom" : "15px" ,
+		"padding-left" : "30px",
+		"display": "block"
+	},
+	".menu-item": {
+		"display": "inline-block"
+	},
+	".align-right": {
+		"text-align": "right"
+	}
+}

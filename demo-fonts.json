@@ -1,0 +1,12 @@
+{
+	"body-font": [
+		"'Roboto', sans-serif",
+		"Arial, sans-serif",
+		"Helvetica, sans-serif"
+	],
+	"heading-font": [
+		"'Oswald', sans-serif",
+		"Impact, Charcoal, sans-serif",
+		"Tahoma, sans-serif"
+	]
+}
